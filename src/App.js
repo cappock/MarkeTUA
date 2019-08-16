@@ -1,9 +1,9 @@
 import React from 'react';
-
+import Listado from './listadoProductos/Listado'
 function App() {
   return (
     <div>
-        HOLI
+        <Listado />
     </div>
   );
 }
