@@ -12,17 +12,16 @@ function Listado() {
 
   useEffect(() => {
 
-    fetch(`https://api.mercadolibre.com/sites/MCO/search?q=${search}`, { mode: "cors" })
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (myJson) {
-        const data = myJson.results.map((obj) => {
-          let new_obj = { id: obj.id, title: obj.title, thumbnail: obj.thumbnail, price: obj.price, seller: obj.seller.id };
-          return new_obj;
-        });
-        setProducts(data);
-      });
+    const fetchItems = async () => {
+      const data = await fetch(URL + search);
+      
+      const items = await data.json();    
+
+      console.log(items);
+      setProducts(items);
+    }
+
+    fetchItems();
 
   }, [search]);
 
