@@ -9,7 +9,6 @@ const ProductGrid = props => (
                     <div className="title">{product.title}</div>
                     <img src={product.thumbnail} alt=""/>
                     <div className="text">Precio: ${product.price}</div>
-                    <Seller id={product.seller}/>
                 </div>
             ))
         ) : (
