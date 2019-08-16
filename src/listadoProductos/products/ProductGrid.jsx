@@ -1,5 +1,4 @@
 import React from 'react';
-import Seller from '../sellers/Seller';
 
 const ProductGrid = props => (
     <div className="container">

@@ -1,9 +1,9 @@
 import React from 'react';
-import Listado from './listadoProductos/Listado'
+import Busqueda from './listadoProductos/Busqueda'
 function App() {
   return (
     <div>
-        <Listado />
+        <Busqueda />
     </div>
   );
 }
