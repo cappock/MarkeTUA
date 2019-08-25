@@ -4,7 +4,9 @@ class Carrito{
         var aux = localStorage.getItem(this.id);
         if(aux == null){
             this.items =  {
-                "Items": []
+                "Items": [
+                    
+                ]
             };
         }else{
             var obj = JSON.parse(aux);
@@ -28,10 +30,12 @@ class Carrito{
     deleteItem(idItem){
         var aux = localStorage.getItem(this.id);
         var obj = JSON.parse(aux);
-
-        var i = obj.Items.indexOf( idItem );
-        i !== -1 &&  obj.Items.splice( i, 1 );
-
+        for (var item in obj.Items){
+            if(obj.Items[item].id == idItem){
+                item !== -1 &&  obj.Items.splice( item, 1 );
+                break;
+            }   
+        }
         this.items = obj;     
         localStorage.setItem(this.id, JSON.stringify(this.items));
     }
