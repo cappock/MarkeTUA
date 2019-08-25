@@ -1,10 +1,20 @@
 class Carrito{
-    constructor(id,items){
-        this.items =  {
-            "Items": []
-        };
-        this.id = id;
+    constructor(){
+        this.id = "carrito";
+        var aux = localStorage.getItem(this.id);
+        if(aux == null){
+            this.items =  {
+                "Items": []
+            };
+        }else{
+            var obj = JSON.parse(aux);
+            this.items = obj; 
+        }
         localStorage.setItem(this.id, JSON.stringify(this.items));
+    }
+
+    getItems(){
+        return this.items.Items;
     }
 
     addItem(idItem){
@@ -23,7 +33,6 @@ class Carrito{
         i !== -1 &&  obj.Items.splice( i, 1 );
 
         this.items = obj;     
-        console.log(this.items);
         localStorage.setItem(this.id, JSON.stringify(this.items));
     }
 }
