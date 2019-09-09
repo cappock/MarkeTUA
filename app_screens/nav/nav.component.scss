@@ -1,0 +1,141 @@
+$grey: rgb(184, 181, 181);
+$green: rgb(77, 112, 77);
+$wite: rgb(255, 255, 255);
+
+.content-auth {
+  align-items: center;
+  background-color: $wite;
+  border-top: 5px solid $green;
+  box-shadow: 0 1px 5px $grey;
+  display: flex;
+  flex-direction: row;
+  height: 80px;
+  justify-content: space-around;
+  left: 0;
+  padding-bottom: 10px;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 1;;
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+
+  .option {
+    margin: 0 30px;
+  }
+
+  .logout {
+    cursor: pointer;
+  }
+
+  .car {
+    cursor: pointer;
+    height: 50px;
+    width: 50px;;
+  }
+}
+
+.content-logo {
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 75px;
+}
+
+.img {
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+}
+
+.title {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 4px;
+}
+
+.logout-btn {
+  cursor: pointer;
+  display: inline-block;
+  opacity: 0.6;
+}
+
+.create-book {
+  background-color: $green;
+  border-radius: 25px;
+  bottom: 10px;
+  box-shadow: 0 1px 5px $grey;
+  color: $wite;
+  cursor: pointer;
+  font-size: 2rem;
+  height: 50px;
+  position: fixed;
+  right: 10px;
+  width: 50px;
+
+  &::before {
+    content: '+';
+    height: 20px;
+    left: 50%;
+    line-height: 14px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+  }
+}
+
+.btn-modal {
+  margin: 0 5px;
+  width: 100px;
+}
+
+.footer {
+  background-color: $wite;
+  bottom: 0;
+  box-shadow: 0 1px 5px $grey;
+  left: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.navigate {
+  display: flex;
+  padding: 10px;
+}
+
+.group-by {
+  -webkit-appearance: menulist;
+  border: 1px solid $grey;
+}
+
+.arrows {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  user-select: none;
+}
+
+.prev-next {
+  cursor: pointer;
+  padding: 5px;
+}
+
+.unable {
+  cursor: none;
+  opacity: 0.2;
+  padding: 5px;
+}
+
+.page {
+  border: 1px solid $grey;
+  border-radius: 5px;
+  cursor: none;
+  padding: 5px;
+}

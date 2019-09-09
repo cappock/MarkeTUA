@@ -1,0 +1,220 @@
+$grey: rgb(184, 181, 181);
+$green: rgb(69, 121, 69);
+$withe: rgb(255, 255, 255);
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: #7EC855;
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+  margin: 0;
+  width: 100%;
+}
+
+.shopping-cart {
+  background: #FFF;
+  border-radius: 6px;
+  box-shadow: 1px 2px 3px 0 rgba(0,0,0,0.10);
+  display: flex;
+  flex-direction: column;
+  margin: 80px auto;
+  width: 750px;
+}
+
+.title {
+  border-bottom: 1px solid #E1E8EE;
+  color: #5E6977;
+  font-size: 18px;
+  font-weight: 400;
+  height: 60px;
+  padding: 20px 30px;
+}
+
+.button {
+  border: 2px solid $green;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 30px;
+  margin-right: 20px;
+  min-width: 100px;
+  text-align: center;;
+
+  &:hover {
+    background-color: $green;
+    color: $withe;
+  }
+}
+
+.total {
+  border-bottom: 1px solid #E1E8EE;
+  color: #5E6977;
+  display: flex;
+  display: flex;
+  font-size: 18px;
+  font-weight: 400;
+  height: 60px;
+  justify-content: space-between;
+  padding: 20px 30px;
+}
+
+.item {
+  align-items: center;
+  display: flex;
+  height: 120px;
+  padding: 20px 30px;
+}
+
+.item:nth-child(3) {
+  border-bottom: 1px solid #E1E8EE;
+  border-top: 1px solid #E1E8EE;
+}
+
+.delete-btn,
+.delete-btn {
+  background: url() no-repeat center;
+  cursor: pointer;
+  height: 40px;
+  margin: 0 30px;
+  width: 40px;
+}
+
+.is-active {
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-name: animate;
+  animation-timing-function: steps(28);
+}
+
+@keyframes animate {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: right;
+  }
+}
+
+input {
+  margin: 0 30px;
+}
+
+.image {
+  border: dotted 1px rgb(212, 208, 208);
+  cursor: pointer;
+  height: 70px;
+  margin: 30px;
+  padding: 10px;
+  width: 90px;
+}
+
+.description {
+  margin: 0 40px;
+  padding-top: 10px;
+  width: 115px;
+}
+
+.description span {
+  color: #43484D;
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.description span:first-child {
+  margin-bottom: 5px;
+}
+.description span:last-child {
+  color: #86939E;
+  font-weight: 300;
+  margin-top: 8px;
+}
+
+.quantity {
+  display: flex;
+  margin-right: 60px;
+}
+.quantity input {
+  -webkit-appearance: none;
+  border: none;
+  color: #43484D;
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+  width: 32px;
+}
+
+button[class*=btn] {
+  background-color: #E1E8EE;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+}
+.minus-btn img {
+  margin-bottom: 3px;
+}
+.plus-btn img {
+  margin: 10px;
+}
+.plus-btn {
+  border: solid rgb(93, 102, 93) 2px;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 25px;
+  margin: 10px;
+  text-align: center;
+  width: 25px;
+
+  &:hover {
+    background-color: rgb(168, 204, 147);
+  }
+}
+button:focus,
+input:focus {
+  outline: 0;
+}
+
+.total-price {
+  color: #43484D;
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+  width: 83px;
+}
+
+@media (max-width: 800px) {
+  .shopping-cart {
+    height: auto;
+    overflow: hidden;
+    width: 100%;
+  }
+  .item {
+    flex-wrap: wrap;
+    height: auto;
+    justify-items: center;
+  }
+  .image img {
+    width: 50%;
+  }
+  .image,
+  .quantity,
+  .description {
+    margin: 6px 0;
+    text-align: center;
+    width: 100%;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    margin-right: 20px;
+  }
+}
