@@ -35,7 +35,7 @@ const handleSubmit = e => {
 
   return (
     <div>
-      <h1>Daniel Vanegas - MercadoLibre</h1>
+      <h1>MarkeTUA</h1>
       <form onSubmit={handleSubmit}>
         <input placeholder="Buscar" ref={textInput} />  
       </form>
