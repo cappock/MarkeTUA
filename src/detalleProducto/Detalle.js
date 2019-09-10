@@ -24,6 +24,11 @@ function Detalle({ match }) {
     <div>
       <h1>{item.name}</h1>
       <img alt={item.name} src={item.thumbnail} />
+      <p>Description {item.description}</p>
+      <div>Brand {item.brand}</div>
+      <div>Rating {item.rating}</div>
+      <div>Sold {item.sold_units}</div>
+      <div>Price {item.price}</div>
     </div>
   );
 }
