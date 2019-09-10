@@ -13,12 +13,12 @@ function Listado() {
   useEffect(() => {
 
     const fetchItems = async () => {
-      const data = await fetch(URL + search);
+      const data = await fetch("http://marketua-develop-api.herokuapp.com/search?q=" + search);
       
       const items = await data.json();    
 
-      console.log(items);
-      setProducts(items);
+      console.log(items.products);
+      setProducts(items.products);
     }
 
     fetchItems();

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+//import './App.css';
 
 function Detalle({ match }) {
 
-    const URL = `URL=${match.params.id}`;
+    const URL = `http://marketua-develop-api.herokuapp.com/products/${match.params.id}`;
 
     const [item, setItem] = useState({images: ''});
 
@@ -13,8 +13,8 @@ function Detalle({ match }) {
             
             const item = await data.json();    
 
-            console.log(item);
-            setItem(item);
+            console.log(item.data);
+            setItem(item.data);
         }
 
         fetchItems();
