@@ -3,22 +3,29 @@ import React, { useState, useEffect } from 'react';
 
 function Detalle({ match }) {
 
-    const URL = `http://marketua-develop-api.herokuapp.com/products/${match.params.id}`;
+    const URL1 = `http://marketua-develop-api.herokuapp.com/products/${match.params.id}`;
+    const URL2 = `http://marketua-develop-api.herokuapp.com/products/${match.params.id}`;
+    const URL3 = `http://marketua-develop-api.herokuapp.com/products/${match.params.id}`;
 
     const [item, setItem] = useState({images: ''});
 
     useEffect(() => {
         const fetchItems = async () => {
-            const data = await fetch(URL);
-            
-            const item = await data.json();    
+          var URL = URL1;
+          if(match.params.api === '2'){
+            URL = URL2;
+          }else if (match.params.api === '3'){
+            URL = URL3;
+          }   
 
-            console.log(item);
-            setItem(item);
+          const data = await fetch(URL);
+          
+          const item = await data.json();    
+          setItem(item);
         }
 
         fetchItems();
-    },[URL]);
+    },[URL1],[URL2], [URL3]);
 
   return (
     <div>

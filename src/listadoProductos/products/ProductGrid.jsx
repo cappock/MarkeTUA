@@ -7,7 +7,7 @@ const ProductGrid = props => (
         {props.products.length > 0 ? (
             props.products.map( (product, index) => (
                 <div className="card" key={index}>
-                    <Link to={`/item/${product.id}`}><div className="title">{product.name}</div></Link>
+                    <Link to={`/item/${props.api}/${product.id}`}><div className="title">{product.name}</div></Link>
                     <img src={product.thumbnail} alt=""/>
                     <div className="text">Precio: ${new Intl.NumberFormat().format(product.price)}</div>
                     <div>{product.seller.seller_name}</div>

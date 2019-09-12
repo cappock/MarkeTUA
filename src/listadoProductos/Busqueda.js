@@ -6,6 +6,8 @@ function Listado() {
   const initialProductState = [];
 
   const [ products, setProducts ] = useState(initialProductState);
+  const [ products1, setProducts1 ] = useState(initialProductState);
+  const [ products2, setProducts2 ] = useState(initialProductState);
   const [ search, setSearch ] = useState("");
 
   const textInput = useRef(null);
@@ -40,8 +42,10 @@ function Listado() {
       /*for (let object of objects) {
           object.url = url + object.id
       }*/
-      const array = [].concat(items1.products).concat(items2.products).concat(items3.products)
-      setProducts(array);
+      //const array = [].concat(items1.products).concat(items2.products).concat(items3.products)
+      setProducts(items1.products);
+      setProducts1(items2.products);
+      setProducts2(items3.products);
     }
 
     fetchItems();
@@ -62,7 +66,9 @@ const handleSubmit = e => {
       <form onSubmit={handleSubmit}>
         <input placeholder="Buscar" ref={textInput} />  
       </form>
-      <ProductGrid products={products} />
+      <ProductGrid products={products} api='1'/>
+      <ProductGrid products={products1} api='2'/>
+      <ProductGrid products={products2} api='3'/>
     </div>
   );
 }
