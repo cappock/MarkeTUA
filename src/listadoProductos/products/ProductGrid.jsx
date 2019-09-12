@@ -9,7 +9,7 @@ const ProductGrid = props => (
                 <div className="card" key={product.id}>
                     <Link to={`/item/${product.id}`}><div className="title">{product.name}</div></Link>
                     <img src={product.thumbnail} alt=""/>
-                    <div className="text">Precio: ${product.price}</div>
+                    <div className="text">Precio: ${new Intl.NumberFormat().format(product.price)}</div>
                     <div>{product.seller.seller_name}</div>
                 </div>
             ))
