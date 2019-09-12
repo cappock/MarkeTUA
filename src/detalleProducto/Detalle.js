@@ -13,8 +13,8 @@ function Detalle({ match }) {
             
             const item = await data.json();    
 
-            console.log(item.data);
-            setItem(item.data);
+            console.log(item);
+            setItem(item);
         }
 
         fetchItems();
@@ -28,7 +28,7 @@ function Detalle({ match }) {
       <div>Brand {item.brand}</div>
       <div>Rating {item.rating}</div>
       <div>Sold {item.sold_units}</div>
-      <div>Price {new Intl.NumberFormat().format(item.price)}</div>
+      <div>Price ${new Intl.NumberFormat().format(item.price)}</div>
     </div>
   );
 }
