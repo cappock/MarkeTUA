@@ -62,27 +62,15 @@ function Listado() {
   }
 
   return (
-    <div className="search-component">
-        <div className="searchBar">
-          <div className="search">
-            <input type="text" className="input"/>
-            <div className="button">Buscar</div>
-          </div>
-        </div>
-        <div className="searchBar">
-          <div className="search">
-            <div className="text">Filtrar por</div>
-            <select clclassNameass="selector">
-              <option>Marca</option>
-              <option>Categoria</option>
-            </select>
-            <select className="selector">
-              <option>Option 1</option>
-              <option>Option 2</option>
-            </select>
-          </div>
-        </div>
-      </div>
+    <div>
+      <h1>MarkeTUA</h1>
+      <form onSubmit={handleSubmit}>
+        <input placeholder="Buscar" ref={textInput} />
+      </form>
+      <ProductGrid products={products} api='1' />
+      <ProductGrid products={products1} api='2' />
+      <ProductGrid products={products2} api='3' />
+    </div>
 
   );
 }
@@ -96,7 +84,6 @@ function Listado() {
       <ProductGrid products={products1} api='2' />
       <ProductGrid products={products2} api='3' />
     </div>
-
 
 */
 
