@@ -18,7 +18,6 @@ function Detalle({ match }) {
       } else if (match.params.api === '3') {
         URL = URL3;
       }
-
       const data = await fetch(URL);
 
       const item = await data.json();
@@ -79,19 +78,7 @@ function Detalle({ match }) {
       </div>
     </div>
 
-
   );
 }
-/*
-      <div>
-        <h1>{item.name}</h1>
-        <img alt={item.name} src={item.thumbnail} />
-        <p>Description {item.description}</p>
-        <div>Brand </div>
-        <div>Rating {item.rating}</div>
-        <div>Sold {item.sold_units}</div>
-        <div>Price ${new Intl.NumberFormat().format(item.price)}</div>
-      </div> 
-*/
 
 export default Detalle;
