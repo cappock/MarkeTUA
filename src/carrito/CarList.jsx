@@ -103,7 +103,7 @@ function CarList() {
                                     <input type="number" readOnly="true" name="name" Value={quantity[item.id]}/>
                                     <div className="plus-btn" onClick = {() => decrease(item.id)}>-</div>
                                 </div>
-                                    <div className="total-price">${item.price}</div>
+                                    <div className="total-price">${new Intl.NumberFormat().format(item.price)}</div>
                             </div>       
                         ))
                     ) : (
