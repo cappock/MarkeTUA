@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 const ProductGrid = props => (
     <div className="container">
         {props.products.length > 0 ? (
-            props.products.map( product => (
-                <div className="card" key={product.id}>
+            props.products.map( (product, index) => (
+                <div className="card" key={index}>
                     <Link to={`/item/${product.id}`}><div className="title">{product.name}</div></Link>
                     <img src={product.thumbnail} alt=""/>
                     <div className="text">Precio: ${new Intl.NumberFormat().format(product.price)}</div>
