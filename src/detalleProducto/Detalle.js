@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Detail.scss';
+import CarouselPage from './CarouselPage';
 
 function Detalle({ match }) {
 
@@ -32,15 +33,23 @@ function Detalle({ match }) {
   return (
 
     <div className="item-detail">
+      <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous"
+      />
+     
       <div className="title">
         <h2>{item.name}</h2>
         <div className="add-car">+ Add</div>
       </div>
       <div className="item">
         <div className="image">
-          <img className="imgSet"
+          {/* <img className="imgSet"
             src={item.thumbnail}
-            alt={item.name} />
+            alt={item.name} /> */}
+             <CarouselPage thumbnail={item.thumbnail} name={item.name}></CarouselPage>
         </div>
         <div className="info">
           <div className="item-info info1">
@@ -71,7 +80,7 @@ function Detalle({ match }) {
             <div className="item-info">
               <h3 className="subtitle">Sold units: </h3>
               <p>
-                  {item.sold_units}
+                {item.sold_units}
               </p>
             </div>
           </div>
