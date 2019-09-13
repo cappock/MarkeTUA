@@ -66,6 +66,7 @@ function Listado() {
       <h1>MarkeTUA</h1>
       <form onSubmit={handleSubmit}>
         <input placeholder="Buscar" ref={textInput} />
+        <button onClick={handleSubmit}>Buscar</button>
       </form>
       <ProductGrid products={products} api='1' />
       <ProductGrid products={products1} api='2' />
