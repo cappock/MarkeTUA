@@ -32,23 +32,21 @@ function Detalle({ match }) {
 
   return (
 
-    <div className="item-detail">
-      <link
+
+    <div className="item-detail2">
+    <link
         rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous"
       />
-     
-      <div className="title">
+      <div className="title2">
         <h2>{item.name}</h2>
-        <div className="add-car">+ Add</div>
+        <div className="add-car2">+ Add</div>
       </div>
-      <div className="item">
-        <div className="image">
-          {/* <img className="imgSet"
-            src={item.thumbnail}
-            alt={item.name} /> */}
+
+      <div className="item2">
+        <div className="image2">
              <CarouselPage thumbnail={item.thumbnail} name={item.name} images={item.images}></CarouselPage>
         </div>
         <div className="info">
@@ -84,7 +82,7 @@ function Detalle({ match }) {
               </p>
             </div>
           </div>
-          <p className="total-price">Price: ${new Intl.NumberFormat().format(item.price)} </p>
+          <p className="total-price2">Price: ${new Intl.NumberFormat().format(item.price)} </p>
         </div>
       </div>
     </div>
