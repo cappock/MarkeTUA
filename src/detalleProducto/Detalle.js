@@ -31,14 +31,14 @@ function Detalle({ match }) {
 
   return (
 
-    <div className="item-detail">
-      <div className="title">
+    <div className="item-detail2">
+      <div className="title2">
         <h2>{item.name}</h2>
-        <div className="add-car">+ Add</div>
+        <div className="add-car2">+ Add</div>
       </div>
-      <div className="item">
-        <div className="image">
-          <img className="imgSet"
+      <div className="item2">
+        <div className="image2">
+          <img className="imgSet2"
             src={item.thumbnail}
             alt={item.name} />
         </div>
@@ -75,7 +75,7 @@ function Detalle({ match }) {
               </p>
             </div>
           </div>
-          <p className="total-price">Price: ${new Intl.NumberFormat().format(item.price)} </p>
+          <p className="total-price2">Price: ${new Intl.NumberFormat().format(item.price)} </p>
         </div>
       </div>
     </div>

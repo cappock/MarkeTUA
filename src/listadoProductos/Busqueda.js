@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ProductGrid from './products/ProductGrid';
-//import './search.scss';
+import './search.scss';
 
 function Listado() {
 
@@ -13,21 +13,7 @@ function Listado() {
 
   const textInput = useRef(null);
 
-  /*useEffect(() => {
-
-    const fetchItems = async () => {
-      const data = await fetch("http://marketua-develop-api.herokuapp.com/search?q=" + search);
-      
-      const items = await data.json();    
-
-      console.log(items.products);
-      setProducts(items.products);
-    }
-
-    fetchItems();
-
-  }, [search]);*/
-
+ 
   useEffect(() => {
 
     const fetchItems = async () => {
@@ -39,11 +25,6 @@ function Listado() {
 
       const data3 = await fetch("http://marketua-develop-api.herokuapp.com/search?q=" + search);
       const items3 = await data3.json();
-
-      /*for (let object of objects) {
-          object.url = url + object.id
-      }*/
-      //const array = [].concat(items1.products).concat(items2.products).concat(items3.products)
       setProducts(items1.products);
       setProducts1(items2.products);
       setProducts2(items3.products);
@@ -63,29 +44,38 @@ function Listado() {
 
   return (
     <div>
-      <h1>MarkeTUA</h1>
-      <form onSubmit={handleSubmit}>
-        <input placeholder="Buscar" ref={textInput} />
-        <button onClick={handleSubmit}>Buscar</button>
-      </form>
-      <ProductGrid products={products} api='1' />
-      <ProductGrid products={products1} api='2' />
-      <ProductGrid products={products2} api='3' />
+
+      <div classNameName="search-component">
+
+
+        <div className="searchBar">
+          <div className="search">
+            <form onSubmit={handleSubmit}>
+              <input className="text" placeholder="Buscar" ref={textInput} />
+              <button className="button" onClick={handleSubmit}>Buscar</button>
+            </form>
+
+          </div>
+        </div>
+        <div className="searchBar">
+          <div className="search">
+            <div className="text">Filtrar por</div>
+            <select className="selector">
+              <option>Marca</option>
+              <option>Categoria</option>
+            </select>
+            <select className="selector">
+              <option>Option 1</option>
+              <option>Option 2</option>
+            </select>
+          </div>
+        </div>
+        <ProductGrid products={products} api='1' />
+
+      </div>
+
     </div>
 
   );
 }
-/*
-    <div>
-      <h1>MarkeTUA</h1>
-      <form onSubmit={handleSubmit}>
-        <input placeholder="Buscar" ref={textInput} />
-      </form>
-      <ProductGrid products={products} api='1' />
-      <ProductGrid products={products1} api='2' />
-      <ProductGrid products={products2} api='3' />
-    </div>
-
-*/
-
 export default Listado;
