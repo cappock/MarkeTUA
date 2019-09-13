@@ -9,7 +9,7 @@ body {
   margin: 0;
 
 }
-/* CSS IMPORTANTE */
+
 .items {
   display: flex;
   flex-wrap: wrap;
@@ -85,8 +85,6 @@ body {
     }
   }
 
-/* END CSS IMPORTANTE */
-
 .search-component {
   background: #FFF;
   border-radius: 6px;
@@ -127,139 +125,4 @@ body {
   height: 60px;
   justify-content: center;
   padding: 20px 30px;
-}
-
-
-
-.buttons {
-  margin-right: 60px;
-  padding-top: 30px;
-  position: relative;
-}
-.delete-btn,
-.like-btn {
-  Cursor: pointer;
-  display: inline-block;
-}
-.delete-btn {
-
-  height: 17px;
-  width: 18px;
-}
-
-.like-btn {
-
-  background-repeat: no-repeat;
-  background-size: 2900%;
-  height: 60px;
-  left: 15px;
-  position: absolute;
-  top: 9px;
-  width: 60px;
-}
-
-.is-active {
-  animation-duration: 0.8s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-  animation-name: animate;
-  animation-timing-function: steps(28);
-}
-
-@keyframes animate {
-  0% {
-    background-position: left;
-  }
-  50% {
-    background-position: right;
-  }
-  100% {
-    background-position: right;
-  }
-}
-
-.description {
-  margin: 0 40px;
-  padding-top: 10px;
-  width: 115px;
-}
-
-.description span {
-  color: #43484D;
-  display: block;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.description span:first-child {
-  margin-bottom: 5px;
-}
-.description span:last-child {
-  color: #86939E;
-  font-weight: 300;
-  margin-top: 8px;
-}
-
-.quantity {
-  margin-right: 60px;
-  padding-top: 20px;
-}
-.quantity input {
-  -webkit-appearance: none;
-  border: none;
-  color: #43484D;
-  font-size: 16px;
-  font-weight: 300;
-  text-align: center;
-  width: 32px;
-}
-
-button[class*=btn] {
-  background-color: #E1E8EE;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  height: 30px;
-  width: 30px;
-}
-.minus-btn img {
-  margin-bottom: 3px;
-}
-.plus-btn img {
-  margin-top: 2px;
-}
-
-button:focus,
-input:focus {
-  outline: 0;
-}
-
-
-
-@media (max-width: 800px) {
-  .shopping-cart {
-    height: auto;
-    overflow: hidden;
-    width: 100%;
-  }
-  .item {
-    // background-color: rgb(156, 184, 219);
-    // border: 2px solid rgb(181, 189, 199);
-    // flex-wrap: wrap;
-    // height: auto;
-    // justify-content: center;
-  }
-  .image img {
-    // width: 50%;
-  }
-  .image,
-  .quantity,
-  .description {
-    margin: 6px 0;
-    text-align: center;
-    width: 100%;
-  }
-  .buttons {
-    margin-right: 20px;
-  }
 }
