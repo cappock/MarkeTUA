@@ -13,7 +13,7 @@ function Listado() {
 
   const textInput = useRef(null);
 
- 
+
   useEffect(() => {
 
     const fetchItems = async () => {
@@ -43,39 +43,19 @@ function Listado() {
   }
 
   return (
-    <div>
-
-      <div classNameName="search-component">
-
-
-        <div className="searchBar">
+      <div>
+        {/* <div className="searchBar"> */}
           <div className="search">
             <form onSubmit={handleSubmit}>
-              <input className="text" placeholder="Buscar" ref={textInput} />
-              <button className="button" onClick={handleSubmit}>Buscar</button>
+              <input className="search-input" placeholder="Buscar" ref={textInput} />
+              <button className="search-button" onClick={handleSubmit}>Buscar</button>
             </form>
-
           </div>
-        </div>
-        <div className="searchBar">
-          <div className="search">
-            <div className="text">Filtrar por</div>
-            <select className="selector">
-              <option>Marca</option>
-              <option>Categoria</option>
-            </select>
-            <select className="selector">
-              <option>Option 1</option>
-              <option>Option 2</option>
-            </select>
-          </div>
-        </div>
+        {/* </div> */}
         <ProductGrid products={products} api='1' />
-
+        <ProductGrid products={products1} api='2' />
+        <ProductGrid products={products2} api='3' />
       </div>
-
-    </div>
-
   );
 }
 export default Listado;

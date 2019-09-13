@@ -34,7 +34,7 @@ function Detalle({ match }) {
 
 
     <div className="item-detail2">
-    <link
+      <link
         rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -47,7 +47,7 @@ function Detalle({ match }) {
 
       <div className="item2">
         <div className="image2">
-             <CarouselPage thumbnail={item.thumbnail} name={item.name} images={item.images}></CarouselPage>
+          <CarouselPage thumbnail={item.thumbnail} name={item.name} images={item.images}></CarouselPage>
         </div>
         <div className="info">
           <div className="item-info info1">
