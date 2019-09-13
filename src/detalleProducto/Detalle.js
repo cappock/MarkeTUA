@@ -49,7 +49,7 @@ function Detalle({ match }) {
           {/* <img className="imgSet"
             src={item.thumbnail}
             alt={item.name} /> */}
-             <CarouselPage thumbnail={item.thumbnail} name={item.name}></CarouselPage>
+             <CarouselPage thumbnail={item.thumbnail} name={item.name} images={item.images}></CarouselPage>
         </div>
         <div className="info">
           <div className="item-info info1">
