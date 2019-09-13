@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ProductGrid from './products/ProductGrid';
-import './search.scss';
+//import './search.scss';
 
 function Listado() {
 
@@ -71,7 +71,8 @@ function Listado() {
           </div>
         </div>
         <ProductGrid products={products} api='1' />
-
+        <ProductGrid products={products1} api='2' />
+        <ProductGrid products={products2} api='3' />
       </div>
 
     </div>
