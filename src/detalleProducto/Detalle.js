@@ -12,7 +12,8 @@ function Detalle({ match }) {
   useEffect(() => {
     const fetchItems = async () => {
 
-      var URL = URL1;
+      let URL = URL1;
+
       if (match.params.api === '2') {
         URL = URL2;
       } else if (match.params.api === '3') {
@@ -25,7 +26,8 @@ function Detalle({ match }) {
     }
 
     fetchItems();
-  }, [URL1], [URL2], [URL3]);
+    // eslint-disable-next-line
+  }, [URL1, URL2, URL3]);
 
   return (
 
