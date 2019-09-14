@@ -5,10 +5,17 @@ import './nav.scss';
 const Navbar = props => (
 <nav className="navbar">
 
-      <h1>MARKETUA</h1>
-      <img className="shopping-car"
-      src="https://cdn4.iconfinder.com/data/icons/shopping-21/64/shopping-01-512.png"
-      alt="udea"/>
+      <Link to={`/`}>
+            <h1>MARKETUA</h1>
+      </Link>
+      
+
+      <Link to={`/carrito`}>
+            <img className="shopping-car"
+            src="https://cdn4.iconfinder.com/data/icons/shopping-21/64/shopping-01-512.png"
+            alt="udea"/>
+      </Link>
+      
 </nav>
 )
 
