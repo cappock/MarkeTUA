@@ -5,9 +5,9 @@ import Carrito from '../carrito/Carrito.js';
 
 function Detalle({ match }) {
 
-  const URL1 = `http://marketua-develop-api.herokuapp.com/products/${match.params.id}`;
-  const URL2 = `http://marketua-develop-api.herokuapp.com/products/${match.params.id}`;
-  const URL3 = `http://marketua-develop-api.herokuapp.com/products/${match.params.id}`;
+  const URL1 = `https://marketua-develop-api.herokuapp.com/products/${match.params.id}`;
+  const URL2 = `https://marketua-develop-api.herokuapp.com/products/${match.params.id}`;
+  const URL3 = `https://marketua-develop-api.herokuapp.com/products/${match.params.id}`;
 
   const [item, setItem] = useState({ images: '' });
 
