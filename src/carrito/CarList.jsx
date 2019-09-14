@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import Carrito from './Carrito.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
@@ -66,18 +66,18 @@ function CarList() {
             {items.length > 0 ? (
                 items.map(item => (
                     <div className="shopping-car__item">
-                        <FontAwesomeIcon className="delete__button" onClick={(e) => eliminar(item.id)} icon={faTrashAlt} size="2x"/>
-                        <img className="product-image" src={item.thumbnail} />
+                        <FontAwesomeIcon className="delete__button" onClick={(e) => eliminar(item.id)} icon={faTrashAlt} size="2x" />
+                        <img className="product-image" src={item.thumbnail} alt="product" />
                         <div className="product-detail">
                             <h3>{item.name}</h3>
                             <h3>{item.brand}</h3>
-                            <br/>
+                            <br />
                             <div className="product-quantity">
                                 <FontAwesomeIcon onClick={(e) => increase(item.id)} icon={faPlus} />
                                 <p className="product-quantity__number">{quantity[item.id]}</p>
                                 <FontAwesomeIcon onClick={() => decrease(item.id)} icon={faMinus} />
                             </div>
-                            <br/>
+                            <br />
                             <p className="product-price">${new Intl.NumberFormat().format(item.price)}</p>
                         </div>
                     </div>
@@ -85,7 +85,7 @@ function CarList() {
             ) : (
                     <div></div>
                 )}
-                <h2>Total ${new Intl.NumberFormat().format(count)}</h2>
+            <h2>Total ${new Intl.NumberFormat().format(count)}</h2>
 
         </div>
     );

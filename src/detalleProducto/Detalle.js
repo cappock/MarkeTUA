@@ -28,10 +28,11 @@ function Detalle({ match }) {
     }
 
     fetchItems();
+    // eslint-disable-next-line
   }, [URL1, URL2, URL3]);
 
-  function agregarAlCarrito(item){
-    var c  = new Carrito();
+  function agregarAlCarrito(item) {
+    var c = new Carrito();
     c.addItem(item);
   }
 
