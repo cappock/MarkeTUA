@@ -20,10 +20,10 @@ function Listado() {
       const data1 = await fetch("https://marketua-develop-api.herokuapp.com/search?q=" + search);
       const items1 = await data1.json();
 
-      const data2 = await fetch("https://marketua-develop-api.herokuapp.com/search?q=" + search);
+      const data2 = await fetch( "https://marketuaflask.herokuapp.com/search?q=" + search);
       const items2 = await data2.json();
 
-      const data3 = await fetch("https://marketua-develop-api.herokuapp.com/search?q=" + search);
+      const data3 = await fetch("http://marketua-go-api.herokuapp.com/search?q=" + search);
       const items3 = await data3.json();
       setProducts(items1.products);
       setProducts1(items2.products);
