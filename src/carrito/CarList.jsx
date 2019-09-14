@@ -64,8 +64,8 @@ function CarList() {
         <div className="shopping-car_items">
             <h2>Shopping Cart</h2>
             {items.length > 0 ? (
-                items.map(item => (
-                    <div className="shopping-car__item">
+                items.map((item, index) => (
+                    <div className="shopping-car__item" key={index}>
                         <FontAwesomeIcon className="delete__button" onClick={(e) => eliminar(item.id)} icon={faTrashAlt} size="2x" />
                         <img className="product-image" src={item.thumbnail} alt="product" />
                         <div className="product-detail">
