@@ -13,7 +13,7 @@ const CarouselPage = (props) => {
                             alt="First slide"
                         />
                         <Carousel.Caption>
-                            <h3>{props.name}</h3>
+                            <h3 style={{textShadow: '2px 2px #000'}}>{props.name}</h3>
                         </Carousel.Caption>
                     </Carousel.Item>
                 ))
@@ -25,7 +25,7 @@ const CarouselPage = (props) => {
                             alt="First slide"
                         />
                         <Carousel.Caption>
-                            <h3>{props.name}</h3>
+                            <h3 style={{textShadow: '2px 2px #000'}}>{props.name}</h3>
                         </Carousel.Caption>
                     </Carousel.Item>
                 )}
