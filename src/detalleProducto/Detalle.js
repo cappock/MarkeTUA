@@ -34,6 +34,7 @@ function Detalle({ match }) {
   function agregarAlCarrito(item) {
     var c = new Carrito();
     c.addItem(item);
+    alert("Producto agregado")
   }
 
   return (
