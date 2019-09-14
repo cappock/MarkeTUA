@@ -70,13 +70,25 @@ function Detalle({ match }) {
               </p>
             </div>
             <div className="item-info">
-              <h3 className="subtitle">Category: </h3>
-              <p>
-                Category 1, Category2, Category 3....
-          </p>
+              <h3 className="subtitle">Seller:  </h3>
+                <p>
+                  { item.seller ? item.seller.seller_name : null }
+                </p>
             </div>
             <div className="item-info">
-              <h3 className="subtitle">Rating</h3>
+              <h3 className="subtitle">Seller Email:  </h3>
+                <p>
+                  { item.seller ? item.seller.seller_email : null }
+                </p>
+            </div>
+            <div className="item-info">
+              <h3 className="subtitle">Seller Rating:  </h3>
+                <p>
+                  { item.seller ? item.seller.seller_rating : null }
+                </p>
+            </div>
+            <div className="item-info">
+              <h3 className="subtitle">Product Rating</h3>
               <p>
                 {item.rating}
               </p>
