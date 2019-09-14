@@ -62,7 +62,7 @@ function CarList() {
 
     return (
         <div className="shopping-car_items">
-            <h2>Shopping Car</h2>
+            <h2>Shopping Cart</h2>
             {items.length > 0 ? (
                 items.map(item => (
                     <div className="shopping-car__item">
