@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Detail.scss';
 import CarouselPage from './CarouselPage';
+import Carrito from '../carrito/Carrito.js';
 
 function Detalle({ match }) {
 
@@ -27,8 +28,12 @@ function Detalle({ match }) {
     }
 
     fetchItems();
-    // eslint-disable-next-line
   }, [URL1, URL2, URL3]);
+
+  function agregarAlCarrito(item){
+    var c  = new Carrito();
+    c.addItem(item);
+  }
 
   return (
 
@@ -42,7 +47,7 @@ function Detalle({ match }) {
       />
       <div className="title2">
         <h2>{item.name}</h2>
-        <div className="add-car2">+ Add</div>
+        <div className="add-car2" onClick={e => agregarAlCarrito(item)}>+ Add</div>
       </div>
 
       <div className="item2">
