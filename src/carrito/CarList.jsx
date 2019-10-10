@@ -2,6 +2,9 @@ import React, { useState, useEffect} from 'react';
 import Carrito from './Carrito.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+
+import { Link } from 'react-router-dom';
+
 import './car.scss';
 
 function CarList() {
@@ -18,9 +21,12 @@ function CarList() {
 
     const [count, setCount] = useState(initialTotalState);
 
-
     const [items, setItems] = useState(itemsInitialState);
     const [quantity, setQuantity] = useState(initialQuantityState);
+
+    const initialDetailState = {  items, quantity , count  };
+
+    const [detail,setDetail] = useState(initialDetailState);
 
     function eliminar(id) {
         car.deleteItem(id);
@@ -36,6 +42,7 @@ function CarList() {
             aux += items[i].price * quantity[items[i].id];
         }
         setCount(aux);
+        setDetail({  items, quantity , count  });
     }, [quantity]);
 
     function decrease(idItem) {
@@ -51,6 +58,10 @@ function CarList() {
         var aux = Object.assign({}, quantity);
         aux[idItem] += 1;
         setQuantity(aux);
+    }
+
+    const handleSale = e => {
+        localStorage.setItem("DetallePedido", JSON.stringify(detail));
     }
 
     return (
@@ -78,7 +89,12 @@ function CarList() {
             ) : (
                     <div></div>
                 )}
+             
             <h2>Total ${new Intl.NumberFormat().format(count)}</h2>
+                
+            <Link to={`/venta/`}>
+                <button onClick={handleSale}>Realizar Pedido</button>
+            </Link>
         </div>
     );
 }
