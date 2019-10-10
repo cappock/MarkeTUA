@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ProductGrid from './products/ProductGrid';
 import './search.scss';
+import SignInPage from '.././logeoFirebase/SignInPage';
 
 function Listado() {
 
@@ -45,6 +46,7 @@ function Listado() {
   return (
       <div>
         {/* <div className="searchBar"> */}
+<SignInPage></SignInPage>
           <div className="search">
             <form onSubmit={handleSubmit}>
               <input className="search-input" placeholder="Buscar" ref={textInput} />
