@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import Carrito from './Carrito.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
@@ -10,11 +10,11 @@ function CarList() {
     const itemsInitialState = car.getItems();
     var initialTotalState = 0;
     var initialQuantityState = {};
+
     for (var i = 0; i < itemsInitialState.length; i++) {
         initialQuantityState[itemsInitialState[i].id] = 1;
         initialTotalState += itemsInitialState[i].price;
-    }
-
+    }       
 
     const [count, setCount] = useState(initialTotalState);
 
@@ -24,40 +24,33 @@ function CarList() {
 
     function eliminar(id) {
         car.deleteItem(id);
+        var aux = Object.assign({}, quantity);
+        delete aux.id;
+        setQuantity(aux);
         setItems(car.getItems());
     };
+    
+    useEffect(()=>{
+        var aux = 0;
+        for (var i = 0; i < items.length; i++) {
+            aux += items[i].price * quantity[items[i].id];
+        }
+        setCount(aux);
+    }, [quantity]);
 
     function decrease(idItem) {
-
-        var aux = quantity;
+        var aux = Object.assign({}, quantity);
         if (aux[idItem] <= 0) {
             return "Incorrect Value";
         }
         aux[idItem] -= 1;
-
         setQuantity(aux);
-        var res = 0;
-        for (var i = 0; i < items.length; i++) {
-            if (items[i].id === idItem) {
-                res = items[i].price;
-                break;
-            }
-        }
-        setCount(count - res);
     }
 
     function increase(idItem) {
-        var aux = quantity;
+        var aux = Object.assign({}, quantity);
         aux[idItem] += 1;
         setQuantity(aux);
-        var add = 0;
-        for (var i = 0; i < items.length; i++) {
-            if (items[i].id === idItem) {
-                add = items[i].price;
-                break;
-            }
-        }
-        setCount(count + add);
     }
 
     return (
@@ -86,7 +79,6 @@ function CarList() {
                     <div></div>
                 )}
             <h2>Total ${new Intl.NumberFormat().format(count)}</h2>
-
         </div>
     );
 }
