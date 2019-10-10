@@ -8,6 +8,7 @@ class Login extends Component {
         super();
         this.state = ({
             userCredentials: null,
+            userLoged:null
         });
         this.authListener = this.authListener.bind(this);
     }
@@ -20,7 +21,7 @@ class Login extends Component {
         firebaseConfig.auth().onAuthStateChanged((user) => {
             console.log(user);
             if (user) {
-                this.setState({ user });
+                this.setState({ userLoged:user });
                 var userCredentials={
                     "user":user.email.split("@")[0],
                     "idtoken":user.uid
@@ -28,7 +29,7 @@ class Login extends Component {
 
                 localStorage.setItem('userCredentials',JSON.stringify(userCredentials));
             } else {
-                this.setState({ userCredentials: null });
+                this.setState({ userLoged: null });
                 localStorage.removeItem('userCredentials');
             }
         });
@@ -62,7 +63,7 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <div>{this.state.userCredentials ? (
+                <div>{this.state.userLoged ? (
                 <button onClick={this.signout} >Cerrar Sesión</button>
                 ) : (
                 <button onClick={this.signup}>Iniciar con Google</button>
