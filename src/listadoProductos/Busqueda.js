@@ -4,7 +4,7 @@ import './search.scss';
 
 
 
-function Listado() {
+
 
 const URLs = {"search": ["https://marketua-develop-api.herokuapp.com/search?q=", "https://marketuaflask.herokuapp.com/search?q=", "http://marketua-go-api.herokuapp.com/search?q="],
               "brand" : ["http://marketua-develop-api.herokuapp.com/items/brand/", "https://marketuaflask.herokuapp.com/items/brand/", "http://marketua-go-api.herokuapp.com/items/brand/" ],
@@ -56,7 +56,7 @@ function Listado() {
 
     const fetchItems = async () => {
       var URLaux = URLs.brand;
-      if(filter == "Marca"){
+      if(filter === "Marca"){
         URLaux = URLs.brand;
       }else{
         URLaux = URLs.category;

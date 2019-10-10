@@ -50,6 +50,7 @@ class Login extends Component {
         }).catch(function (error) {
             // Handle Errors here.
             var errorCode = error.code;
+            console.log(errorCode)
             var errorMessage = error.message;
             // The email of the user's account used.
             var email = error.email;
@@ -61,7 +62,7 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <div>{this.state.user ? (
+                <div>{this.state.userCredentials ? (
                 <button onClick={this.signout} >Cerrar Sesión</button>
                 ) : (
                 <button onClick={this.signup}>Iniciar con Google</button>
