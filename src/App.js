@@ -1,4 +1,5 @@
 import React from 'react';
+import firebaseConfig from './logeoFirebase/firebaseConfig';
 import CarList from './carrito/CarList';
 import Busqueda from './listadoProductos/Busqueda';
 import Detalle from './detalleProducto/Detalle';
@@ -15,7 +16,9 @@ function App() {
           <Route path="/" exact component={Busqueda} />
           <Route path="/item/:api/:id" component={Detalle} />
           <Route path="/carrito" component={CarList} />
+
           <Route path="/venta/" component={Sale} />
+
         </Switch>
       </div>
     </Router>
