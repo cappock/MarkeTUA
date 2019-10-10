@@ -6,8 +6,8 @@ import Carrito from '../carrito/Carrito.js';
 function Detalle({ match }) {
 
   const URL1 = `https://marketua-develop-api.herokuapp.com/products/${match.params.id}`;
-  const URL2 = `https://marketua-develop-api.herokuapp.com/products/${match.params.id}`;
-  const URL3 = `https://marketua-develop-api.herokuapp.com/products/${match.params.id}`;
+  const URL2 = `https://marketuaflask.herokuapp.com/items/${match.params.id}`;
+  const URL3 = `http://marketua-go-api.herokuapp.com/items/${match.params.id}`;
 
   const [item, setItem] = useState({ images: '' });
 
@@ -24,7 +24,11 @@ function Detalle({ match }) {
       const data = await fetch(URL);
 
       const item = await data.json();
+      if(item.images == null){
+        item.images = [];
+      }
       setItem(item);
+      
     }
 
     fetchItems();
