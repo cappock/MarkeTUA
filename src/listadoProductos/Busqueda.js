@@ -2,12 +2,17 @@ import React, { useState, useEffect, useRef } from 'react';
 import ProductGrid from './products/ProductGrid';
 import './search.scss';
 
+
+
+function Listado() {
+
 const URLs = {"search": ["https://marketua-develop-api.herokuapp.com/search?q=", "https://marketuaflask.herokuapp.com/search?q=", "http://marketua-go-api.herokuapp.com/search?q="],
               "brand" : ["http://marketua-develop-api.herokuapp.com/items/brand/", "https://marketuaflask.herokuapp.com/items/brand/", "http://marketua-go-api.herokuapp.com/items/brand/" ],
               "category": ["http://marketua-develop-api.herokuapp.com/items/category/", "https://marketuaflask.herokuapp.com/items/category/", "http://marketua-go-api.herokuapp.com/items/category/"]};
 
 const brands = ["Lenovo", "Asus", "Apple", "ThinkPad"];
 const categories = ["Cellphone", "Portatil", "Mac", "Perifericos"];
+
 
 function Listado() {
   const initialProductState = [];
@@ -103,6 +108,7 @@ function Listado() {
   return (
       <div>
         {/* <div className="searchBar"> */}
+
           <div className="search">
             <form onSubmit={handleSubmit}>
               <input className="search-input" placeholder="Buscar" ref={textInput} />
