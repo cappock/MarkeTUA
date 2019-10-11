@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './Detail.scss';
 import CarouselPage from './CarouselPage';
 import Carrito from '../carrito/Carrito.js';
-import TablaPedidos from '../verPedido/TablaPedidos'
 
 function Detalle({ match }) {
 
@@ -43,8 +42,7 @@ function Detalle({ match }) {
   }
 
   return (
-    <div className="item-detail2">
-      <TablaPedidos/>
+    <div className="item-detail2">     
       <link
         rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
