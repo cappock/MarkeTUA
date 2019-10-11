@@ -5,6 +5,9 @@ import { faPlus, faMinus, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 import { Link } from 'react-router-dom';
 
+
+// import Sale from '../sale/Sale';
+
 import './car.scss';
 
 function CarList() {
@@ -27,6 +30,8 @@ function CarList() {
     const initialDetailState = {  items, quantity , count  };
 
     const [detail,setDetail] = useState(initialDetailState);
+
+    const [order, SetOrder] = useState(false);
 
     function eliminar(id) {
         car.deleteItem(id);
@@ -62,6 +67,7 @@ function CarList() {
 
     const handleSale = e => {
         localStorage.setItem("DetallePedido", JSON.stringify(detail));
+        SetOrder(true);
     }
 
     return (
@@ -91,10 +97,16 @@ function CarList() {
                 )}
              
             <h2>Total ${new Intl.NumberFormat().format(count)}</h2>
-                
             <Link to={`/venta/`}>
                 <button onClick={handleSale}>Realizar Pedido</button>
             </Link>
+            
+            {/* {order ? (
+                <Sale/> 
+            ) : (
+                    <div></div>
+                )} */}
+     
         </div>
     );
 }

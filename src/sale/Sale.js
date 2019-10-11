@@ -64,6 +64,8 @@ function Sale() {
         } catch (error) {
             console.log(error, "Error al llamar GO back");
         }
+
+        alert("Pedido Realizado");
     }
 
     return(

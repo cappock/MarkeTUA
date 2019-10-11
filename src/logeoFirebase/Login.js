@@ -19,7 +19,6 @@ class Login extends Component {
 
     authListener() {
         firebaseConfig.auth().onAuthStateChanged((user) => {
-            console.log(user);
             if (user) {
                 this.setState({ userLoged:user });
                 var userCredentials={
