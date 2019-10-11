@@ -46,6 +46,7 @@ body {
 }
 
 .item-title {
+  color: $green;
   margin: 5px;
 }
 
@@ -69,7 +70,7 @@ body {
   font-size: 16px;
   margin: 8px;
   padding: 12px 20px;
-  width: 300px;
+  width: 350px;
   &:focus {
     outline: 0;
   }
@@ -88,7 +89,6 @@ body {
   cursor: pointer;
   display: inline-block;
   font-size: 16px;
-  margin-right: 40px;
   padding: 10px;
   text-align: center;
   text-decoration: none;
@@ -113,11 +113,11 @@ body {
   margin: 0 20px;
 }
 .search {
-  align-content: center;
+  align-items: center;
   color: $green;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-items: center;
   margin-bottom: 20px;
 
   .input {
@@ -139,4 +139,73 @@ body {
   height: 60px;
   justify-content: center;
   padding: 20px 30px;
+}
+
+.filtros {
+  margin: 0;
+
+  .title {
+    font-weight: 600;
+    margin: 10px;
+    text-align: center;
+  }
+}
+
+.custom-select {
+  font-family: Arial;
+  margin: 0 15px;
+  position: relative;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  border: 6px solid transparent;
+  border-color: #FFF transparent transparent transparent;
+  content: '';
+  height: 0;
+  position: absolute;
+  right: 10px;
+  top: 14px;
+  width: 0;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #FFF transparent;
+  top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,
+.select-selected {
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  color: #FFF;
+  cursor: pointer;
+  padding: 8px 16px;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  background-color: DodgerBlue;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover,
+.same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
 }

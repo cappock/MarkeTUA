@@ -110,13 +110,13 @@ function Listado() {
               <input className="search-input" placeholder="Buscar" ref={textInput} />
               <div className="search-button" onClick={handleSubmit}>Buscar</div>
             </form>
-              <div>
-                <div >Buscar por</div>
-                <select onChange={handlefilter}>
-                  <option value="Marca">Marca</option> 
-                  <option value="Categoria">Categoria</option>
+              <div className='filtros'>
+                <div className='title' >Filtrar por</div>
+                <select className='custom-select' onChange={handlefilter}>
+                  <option  value="Marca">Marca</option> 
+                  <option  value="Categoria">Categoria</option>
                 </select>
-                <select onChange={handleOption}>
+                <select className='custom-select' onChange={handleOption}>
                   <option value={options[0]} >{options[0]}</option>
                   <option value={options[1]}>{options[1]}</option>
                   <option value={options[2]}>{options[2]}</option>
