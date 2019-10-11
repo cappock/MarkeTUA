@@ -1,89 +1,100 @@
 $grey: rgb(184, 181, 181);
-$green: rgb(69, 121, 69);
-$withe: rgb(255, 255, 255);
+$green: rgb(58, 102, 58);
+$green-two: rgb(66, 153, 66);
+$withe: rgb(245, 241, 241);
+$light-green: rgb(214, 231, 205);
 
 html,
 body {
-  background-color: #7EC855;
+  background-color: $light-green;
   font-family: 'Roboto', sans-serif;
   margin: 0;
-
 }
 
 .items {
-  display: flex;
+  display: grid;
   flex-wrap: wrap;
+  grid-template-columns: 1fr;
   justify-content: center;
-  max-width: 1400px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .item {
-  border: 1px solid black;
-  margin: 15px;
-  width: 350px;
-  display: flex;
-  flex-wrap: wrap;
-  border-radius: 10px;
   background-color: $withe;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: 180px 330px;
+  height: 140px;
+  justify-self: center;
+  margin: 15px;
+  width: 500px;
 }
 
 .image {
-  cursor: pointer;
-  width: 100px;
   height: 100px;
+  justify-self: center;
   margin: 10px;
+  width: 100px;
 }
 
 .item-detail {
-  width: 60%;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  margin-left: 10px;
+  justify-content: center;
+  justify-self: center;
+  width: 60%;
 }
 
 .item-title {
-  margin: 10px 0;
+  margin: 5px;
 }
 
 .item-seller {
-  margin: 0;
+  margin: 5px;
 }
 
 .item-price {
   color: #43484D;
   font-size: 16px;
   font-weight: 300;
-  margin: 0;
+  margin: 5px;
 }
 
 .search-input {
-  padding: 12px 20px;
-  margin: 8px;
-  font-size: 16px;
-  display: inline-block;
-  border: 1px solid #ccc;
+  border: 2px solid $green;
+  border-radius: 20px;
   box-sizing: border-box;
+  display: inline-block;
+  font-size: 16px;
+  margin: 8px;
+  padding: 12px 20px;
+  width: 300px;
 }
 .search {
+  display: flex;
+  justify-items: start;
   margin: 20px 0;
 }
 .search-button {
-  background-color: #4CAF50; /* Green */
-  border: none;
+  background-color: $green-two;
+  border: 2px solid $green;
+  border-radius: 20px;
   color: white;
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 40px;
   padding: 10px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  width: 100px;
 
-    &:hover {
-      background-color: $green;
-      color: $withe;
-    }
+  &:hover {
+    background-color: $green;
+    color: $withe;
   }
+}
 
 .search-component {
   background: #FFF;
@@ -112,7 +123,6 @@ body {
     text-align: center;
     width: 220px;
   }
-  
 }
 
 .searchBar {
