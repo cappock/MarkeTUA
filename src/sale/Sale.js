@@ -1,40 +1,43 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 
-const URLs = ["http://marketua-develop-api.herokuapp.com/checkout"];
+const URLs = ["","","https://marketua-go-api.herokuapp.com/checkout"];
 
 function Sale() {
 
     const addressInput = useRef(null);
+    const payment_methodInput = useRef(null);
     const userCredentials = JSON.parse(localStorage.getItem("userCredentials"));
     
     const detail = JSON.parse(localStorage.getItem("DetallePedido"));
-    var items1 = [];
-    var items2 = [];
-    var items3 = [];
+    var items = [];
+
 
     detail.items.forEach(element => {
         if(element.api === 1){
-            items1.push({"item_id" : element.id , "quantity": detail.quantity[element.id]});
+            items.push({"Item_id" : element.id , "Quantity": detail.quantity[element.id], "backend":"RUBY"});
         }
         else if(element.api === 2){
-            items2.push({"item_id" : element.id , "quantity": detail.quantity[element.id]});
+            items.push({"Item_id" : element.id , "Quantity": detail.quantity[element.id], "backend":"FLASK"});
         }
         else if(element.api === 3){
-            items3.push({"item_id" : element.id , "quantity": detail.quantity[element.id]});
+            items.push({"Item_id" : element.id , "Quantity": detail.quantity[element.id], "backend":"GO"});
         }
     });
 
-    const[payment_method,setPayment_method] = useState("Contraentrega");
-    
-
     const handleBuy = e => {
-
-        console.log(addressInput);
+        e.preventDefault();
+        const address = addressInput.current.value;
+        const payment_method = payment_methodInput.current.value;
+        
         var conf = {
             method: "post", 
-            body: JSON.stringify({ "items": items1,"total" : detail.count,
-                "shipment_address": addressInput, "user_name": userCredentials.user ,
-                "payment_method": payment_method}),
+            body: JSON.stringify({
+                "Items": items,
+                "Payment_method":payment_method,
+                "Shipment_address":address,
+                "Total":30.0,
+                "Username":userCredentials.user
+              }),
             headers: new Headers({ "idToken": userCredentials.idToken })
         };
 
@@ -43,36 +46,35 @@ function Sale() {
                 return response.json();
             });
         } catch (error) {
-            console.log(error, "Error al llamar ruby back");
+            console.log(error, "Error al llamar RUBY back");
         }
-        
-        conf.items = items2;
+
         try {
             fetch(URLs[1], conf).then(response => {
                 return response.json();
             });
         } catch (error) {
-            console.log(error, "Error al llamar flask back");
+            console.log(error, "Error al llamar FLASK back");
         }
 
-        conf.items = items3;
         try {
             fetch(URLs[2], conf).then(response => {
                 return response.json();
             });
         } catch (error) {
-            console.log(error, "Error al llamar Go back");
+            console.log(error, "Error al llamar GO back");
         }
-
     }
 
     return(
         <div>
-            <form  onSubmit={handleBuy}>
+            <form onSubmit={handleBuy}>
                 <p> Direccion : </p>
                 <input placeholder="Direccion"  required="required"  ref={addressInput}/>
                 <p> Metodo de Pago : </p>
-                <input value= "Contra-Entrega" readOnly></input>
+                <select>
+                    <option value="Contraentrega" ref={payment_methodInput} >Contra-Entrega</option>
+                </select>
                 <div><button >Realizar Compra</button></div>
             </form>   
         </div>
