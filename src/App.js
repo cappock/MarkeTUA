@@ -6,6 +6,7 @@ import Detalle from './detalleProducto/Detalle';
 import Sale from './sale/Sale';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Navbar from './Navbar';
+import TablaPedidos from './verPedido/TablaPedidos'
 
 function App() {
   
@@ -20,17 +21,22 @@ function App() {
 
   return (
     <Router>
-      <div>
+      <div>       
         <Navbar/>
         <Switch>
           <Route path="/" exact component={Busqueda} />
           <Route path="/item/:api/:id" component={Detalle} />
           <Route path="/carrito" component={CarList} />
+
+         
+
           {isLoggeIn ? (
                 <Route  path="/venta/" component={Sale} />
+                 <Route path="/pedidos" component={TablaPedidos} />
             ) : (
                 <Redirect to="/carrito"  />
                 )}
+
         </Switch>
       </div>
     </Router>

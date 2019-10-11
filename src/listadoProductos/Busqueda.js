@@ -3,7 +3,6 @@ import ProductGrid from './products/ProductGrid';
 import './search.scss';
 
 
-
 const URLs = {"search": ["https://marketua-develop-api.herokuapp.com/search?q=", "https://marketuaflask.herokuapp.com/search?q=", "http://marketua-go-api.herokuapp.com/search?q="],
               "brand" : ["http://marketua-develop-api.herokuapp.com/items/brand/", "https://marketuaflask.herokuapp.com/items/brand/", "http://marketua-go-api.herokuapp.com/items/brand/" ],
               "category": ["http://marketua-develop-api.herokuapp.com/items/category/", "https://marketuaflask.herokuapp.com/items/category/", "http://marketua-go-api.herokuapp.com/items/category/"]};
@@ -14,7 +13,6 @@ const categories = ["Cellphone", "Portatil", "Mac", "Perifericos"];
 
 function Listado() {
   const initialProductState = [];
-
   const [products, setProducts] = useState(initialProductState);
   const [products1, setProducts1] = useState(initialProductState);
   const [products2, setProducts2] = useState(initialProductState);
