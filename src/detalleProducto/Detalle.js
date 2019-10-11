@@ -13,7 +13,6 @@ function Detalle({ match }) {
 
   useEffect(() => {
     const fetchItems = async () => {
-
       let URL = URL1;
 
       if (match.params.api === '2') {
@@ -28,21 +27,22 @@ function Detalle({ match }) {
         item.images = [];
       }
       setItem(item);
-      
     }
-
     fetchItems();
     // eslint-disable-next-line
   }, [URL1, URL2, URL3]);
 
   function agregarAlCarrito(item) {
     var c = new Carrito();
+    item.api = match.params.api;
     c.addItem(item);
     alert("Producto agregado")
   }
 
   return (
-    <div className="item-detail2">     
+
+    <div className="item-detail2">
+
       <link
         rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
