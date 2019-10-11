@@ -5,13 +5,20 @@ import { faPlus, faMinus, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 import { Link } from 'react-router-dom';
 
+import compartirCarrito from '../compartirCarrito/compartirCarrito';
 
 // import Sale from '../sale/Sale';
 
 import './car.scss';
 
-function CarList() {
+function CarList( {match} ) {
+    console.log(match);
+    var id = match.params.id;   
     var car = new Carrito();
+   
+    if(typeof id !== 'undefined'){
+        car = car.constructor1(id);
+    }
 
     const itemsInitialState = car.getItems();
     var initialTotalState = 0;
@@ -32,6 +39,8 @@ function CarList() {
     const [detail,setDetail] = useState(initialDetailState);
 
     const [order, SetOrder] = useState(false);
+
+    const [link, setLink] = useState("");
 
     function eliminar(id) {
         car.deleteItem(id);
@@ -70,6 +79,12 @@ function CarList() {
         SetOrder(true);
     }
 
+    const handleCompartir = e => {
+
+        console.log(JSON.stringify(items));
+        setLink(compartirCarrito(JSON.stringify(items)));
+    }
+
     return (
         <div className="shopping-car_items">
             <h2>Shopping Cart</h2>
@@ -101,6 +116,21 @@ function CarList() {
                 <button onClick={handleSale}>Realizar Pedido</button>
             </Link>
             
+            <button onClick={handleCompartir} >  Compartir Carrito </button>
+
+
+            {link==="" ? (
+                <div> 
+                </div>
+            ) : (
+                <div> 
+                    <Link to={link}>
+                        <h2>Compartir</h2>
+                    </Link>
+                </div>
+                )}
+
+
             {/* {order ? (
                 <Sale/> 
             ) : (

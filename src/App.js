@@ -8,6 +8,10 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import Navbar from './Navbar';
 import TablaPedidos from './verPedido/TablaPedidos'
 
+
+
+import {recibirCarrito} from './compartirCarrito/compartirCarrito';
+
 function App() {
   
   const[isLoggeIn,setIsloggeIn] = useState(false);  
@@ -26,7 +30,8 @@ function App() {
         <Switch>
           <Route path="/" exact component={Busqueda} />
           <Route path="/item/:api/:id" component={Detalle} />
-          <Route path="/carrito" component={CarList} />
+          <Route path="/carrito" exact component={CarList} />
+          <Route path="/carrito/:user/:stringCarrito" component={recibirCarrito} /> 
 
           {isLoggeIn ? (
                 <div> 

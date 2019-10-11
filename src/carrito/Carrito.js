@@ -15,6 +15,34 @@ class Carrito {
         localStorage.setItem(this.id, JSON.stringify(this.items));
     }
 
+    constructor1(id) {
+        this.id = id;
+        var aux = localStorage.getItem(this.id);
+        if (aux == null) {
+            this.items = {
+                "Items": [
+
+                ]
+            };
+        } else {
+            var obj = JSON.parse(aux);
+            this.items = obj;
+        }
+        localStorage.setItem(this.id, JSON.stringify(this.items));
+        return this;
+    }
+
+    constructor2(idCarrito,items){
+        this.id = idCarrito;
+        var aux = localStorage.getItem(this.id);
+        if (aux == null) {  
+            localStorage.setItem(this.id, items);
+        } else {
+            return;
+        }
+        return this;
+    }
+
     getItems() {
         var aux = localStorage.getItem(this.id);
         var obj = JSON.parse(aux);
