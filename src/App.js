@@ -4,12 +4,10 @@ import Busqueda from './listadoProductos/Busqueda'
 import Detalle from './detalleProducto/Detalle'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './Navbar';
-import TablaPedidos from './verPedido/TablaPedidos'
 function App() {
   return (
     <Router>
-      <div>
-        <TablaPedidos></TablaPedidos>
+      <div>       
         <Navbar/>
         <Switch>
           <Route path="/" exact component={Busqueda} />

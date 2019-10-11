@@ -5,7 +5,9 @@ import Pedido from './Pedido';
 class TablaPedidos extends Component {
     state = {
         endpoint: "https://marketua-go-api.herokuapp.com/orders/edison.bedoyag",
-        orders: null
+        data: null,
+        items: "http://marketua-go-api.herokuapp.com/items/3",
+        images: null
     };
     componentDidMount() {
         const conf = {
@@ -15,21 +17,46 @@ class TablaPedidos extends Component {
         fetch(this.state.endpoint, conf).then(response => {
             return response.json();
         }).then(data => {
-            this.setState({ orders: data });
+
+            fetch(this.state.items, conf).then(response => {
+                return response.json();
+            }).then(item => {
+                this.setState({ images: item });
+                console.log("esta es la data ")
+                console.log(item.thumbnail)
+                this.setState({ data: data });
+            })
+
+
         });
+
     }
     render() {
         return (
             <div>
                 <table>
                     <tbody>
-                        {this.state.orders.length > 0 ? (
-                            this.state.orders.map((order, index) => (
-
-                                <Pedido payment_method={order.payment_method} shipment_address={order.shipment_address} total={order.total} username={order.username}></Pedido>
+                        <tr>
+                            <td width="130">Items</td>
+                            <td>Metodo de pago</td>
+                            <td>Direcciòn de envìo</td>
+                            <td>Total</td>
+                            <td>Nombre de usuario</td>
+                        </tr>
+                        {this.state.data ? (
+                            this.state.data.orders.map((order, index) => (
+                                <Pedido payment_method={order.payment_method}
+                                    shipment_address={order.shipment_address}
+                                    total={order.total}
+                                    username={order.username}
+                                    thumbnail={this.state.images.thumbnail}
+                                    name={this.state.images.name}
+                                    images={this.state.images.images}
+                                />
 
                             ))
-                            ) : (
+
+                        ) : (
                                 <div></div>
                             )}
 
