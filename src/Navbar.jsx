@@ -1,18 +1,25 @@
-import React from 'react';
+import React, { useState} from 'react';
 
 import { Link } from 'react-router-dom';
 import './nav.scss';
 import SignInPage from './logeoFirebase/SignInPage';
+
 const Navbar = props => (
+
+
       <nav className="navbar">
 
             <Link to={`/`}>
                   <h1>MARKETUA</h1>
             </Link>
-            <Link to={`/pedidos/`}>
-                  
-                  <button>Ver pedidos</button>
-            </Link>
+
+            {props.isLoggeIn ? (
+                  <Link to={`/pedidos/`}>     
+                        <button>Ver pedidos</button>
+                  </Link>
+            ) : (
+                <div></div>
+                )}
 
             <Link to={`/carrito`}>
                   <img className="shopping-car"
