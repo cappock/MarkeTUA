@@ -76,7 +76,7 @@ function Listado() {
       setProducts2(items3.products);
     }
     fetchItems();
-  }, [filterSearch]);
+  }, [filter, filterSearch]);
 
   useEffect(() => {
     if(filter == "Marca"){
@@ -104,13 +104,11 @@ function Listado() {
   }
 
   return (
-      <div>
-        {/* <div className="searchBar"> */}
-
+      <div className='content'>
           <div className="search">
             <form onSubmit={handleSubmit}>
               <input className="search-input" placeholder="Buscar" ref={textInput} />
-              <button className="search-button" onClick={handleSubmit}>Buscar</button>
+              <div className="search-button" onClick={handleSubmit}>Buscar</div>
             </form>
               <div>
                 <div >Buscar por</div>
@@ -126,7 +124,6 @@ function Listado() {
                 </select>
               </div>  
           </div>
-        {/* </div> */}
         <ProductGrid products={products} api='1' />
         <ProductGrid products={products1} api='2' />
         <ProductGrid products={products2} api='3' />

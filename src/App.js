@@ -20,7 +20,6 @@ function App() {
 
   return (
     <Router>
-      <div>
         <Navbar/>
         <Switch>
           <Route path="/" exact component={Busqueda} />
@@ -32,7 +31,6 @@ function App() {
                 <Redirect to="/carrito"  />
                 )}
         </Switch>
-      </div>
     </Router>
   );
 }

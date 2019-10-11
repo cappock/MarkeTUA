@@ -1,12 +1,8 @@
-$grey: rgb(184, 181, 181);
-$green: rgb(58, 102, 58);
-$green-two: rgb(66, 153, 66);
-$withe: rgb(245, 241, 241);
-$light-green: rgb(214, 231, 205);
+@import '../variables.scss';
 
 html,
 body {
-  background-color: $light-green;
+  background-color: $backg;
   font-family: 'Roboto', sans-serif;
   margin: 0;
 }
@@ -14,18 +10,19 @@ body {
 .items {
   display: grid;
   flex-wrap: wrap;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   justify-content: center;
-  width: 100%;
+  justify-items: center;
+  padding: 0 300px;
 }
 
 .item {
   background-color: $withe;
-  border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 2px;
+  box-shadow: 10px 10px 17px -11px rgba(117,115,117,1);
   display: grid;
   flex-wrap: wrap;
-  grid-template-columns: 180px 330px;
+  grid-template-columns: 160px 310px;
   height: 140px;
   justify-self: center;
   margin: 15px;
@@ -44,7 +41,8 @@ body {
   flex-direction: column;
   justify-content: center;
   justify-self: center;
-  width: 60%;
+  padding: 10px 20px;
+  width: 100%;
 }
 
 .item-title {
@@ -66,29 +64,35 @@ body {
   border: 2px solid $green;
   border-radius: 20px;
   box-sizing: border-box;
+  cursor: pointer;
   display: inline-block;
   font-size: 16px;
   margin: 8px;
   padding: 12px 20px;
   width: 300px;
+  &:focus {
+    outline: 0;
+  }
 }
 .search {
   display: flex;
   justify-items: start;
   margin: 20px 0;
 }
+
 .search-button {
   background-color: $green-two;
   border: 2px solid $green;
   border-radius: 20px;
   color: white;
+  cursor: pointer;
   display: inline-block;
   font-size: 16px;
   margin-right: 40px;
   padding: 10px;
   text-align: center;
   text-decoration: none;
-  width: 100px;
+  width: 130px;
 
   &:hover {
     background-color: $green;
