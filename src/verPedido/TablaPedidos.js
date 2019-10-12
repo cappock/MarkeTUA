@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Pedido from './Pedido';
+import '../verPedido/Pedido.scss';
 
 
 class TablaPedidos extends Component {
@@ -45,16 +46,16 @@ class TablaPedidos extends Component {
     }
     render() {
         return (
-            <div>
-                <table>
+            <div className='screen'>
+                <table className='table'>
                     <tbody>
-                        <tr>
-                            <td width="130">Items</td>
-                            <td>Metodo de pago</td>
-                            <td>Direcciòn de envìo</td>
-                            <td>Total</td>
-                            <td>Nombre de usuario</td>
-                        </tr>
+                        { <tr>
+                            <th>Items</th>
+                            <th>Pay method</th>
+                            <th>Address</th>
+                            <th>Total</th>
+                            <th>User-name</th>
+                        </tr> }
                         {this.state.data ? (
                             this.state.data.orders.map((order, index) => (
                                 <Pedido payment_method={order.payment_method}

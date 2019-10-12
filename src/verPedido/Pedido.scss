@@ -1,0 +1,35 @@
+@import '../../variables.scss';
+
+.screen {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+table {
+  border-collapse: collapse;
+  box-shadow: 10px 10px 17px -11px rgba(117,115,117,1);
+  font-family: arial, sans-serif;
+  margin: 40px 150px;
+  width: 100%;
+}
+
+td,
+th {
+  background-color: white;
+  border: 1px solid $green;
+  min-width: 200px;
+  padding: 8px;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #DDD;
+}
+
+.image-carrousel {
+  height: 300px;
+  min-height: 3 00px;
+  min-width: 400px;
+  width: 400px;
+}

@@ -106,14 +106,14 @@ function Listado() {
       <div className='content'>
           <div className="search">
             <form onSubmit={handleSubmit}>
-              <input className="search-input" placeholder="Buscar" ref={textInput} />
-              <div className="search-button" onClick={handleSubmit}>Buscar</div>
+              <input className="search-input" placeholder="key words..." ref={textInput} />
+              <div className="search-button" onClick={handleSubmit}>Search</div>
             </form>
               <div className='filtros'>
-                <div className='title' >Filtrar por:</div>
+                <div className='title' >Filter by:</div>
                 <select className='custom-select' onChange={handlefilter}>
-                  <option  value="Marca">Marca</option> 
-                  <option  value="Categoria">Categoria</option>
+                  <option  value="Marca">Brand</option> 
+                  <option  value="Categoria">Category</option>
                 </select>
                 <select className='custom-select' onChange={handleOption}>
                   <option value={options[0]} >{options[0]}</option>

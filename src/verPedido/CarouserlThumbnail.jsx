@@ -1,5 +1,6 @@
 import React from "react";
 import Carousel from 'react-bootstrap/Carousel'
+import '../verPedido/Pedido.scss';
 
 const CarouselThumbnail = (props) => {
     return (
@@ -8,7 +9,7 @@ const CarouselThumbnail = (props) => {
                 props.images.map((image, index) => (
                     <Carousel.Item>
                     <img
-                        className="d-block w-100"
+                        className="image-carrousel"
                         src={image.url}
                         alt="First slide"
                         width="50"
