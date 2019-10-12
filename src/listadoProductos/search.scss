@@ -1,101 +1,89 @@
-@import '../variables.scss';
+$grey: rgb(184, 181, 181);
+$green: rgb(69, 121, 69);
+$withe: rgb(255, 255, 255);
 
 html,
 body {
-  background-color: $backg;
+  background-color: #7EC855;
   font-family: 'Roboto', sans-serif;
   margin: 0;
+
 }
 
 .items {
-  display: grid;
+  display: flex;
   flex-wrap: wrap;
-  grid-template-columns: 1fr;
   justify-content: center;
-  justify-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .item {
-  background-color: $withe;
-  border-radius: 2px;
-  box-shadow: 10px 10px 17px -11px rgba(117,115,117,1);
-  display: grid;
-  flex-wrap: wrap;
-  grid-template-columns: 160px 310px;
-  height: 140px;
+  border: 1px solid black;
   margin: 15px;
-  width: 800px;
+  width: 350px;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  background-color: $withe;
 }
 
 .image {
-  height: 100px;
-  justify-self: center;
-  margin: 10px;
+  cursor: pointer;
   width: 100px;
+  height: 100px;
+  margin: 10px;
 }
 
 .item-detail {
+  width: 60%;
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  justify-self: center;
-  padding: 10px 20px;
-  width: 100%;
+  margin-left: 10px;
 }
 
 .item-title {
-  color: $green;
-  width: 400px;
+  margin: 10px 0;
 }
 
 .item-seller {
-  margin: 5px;
+  margin: 0;
 }
 
 .item-price {
   color: #43484D;
   font-size: 16px;
   font-weight: 300;
-  margin: 5px;
+  margin: 0;
 }
 
 .search-input {
-  border: 2px solid $green;
-  border-radius: 20px;
-  box-sizing: border-box;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 16px;
-  margin: 8px;
   padding: 12px 20px;
-  width: 350px;
-  &:focus {
-    outline: 0;
-  }
+  margin: 8px;
+  font-size: 16px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 .search {
-  display: flex;
-  justify-items: start;
   margin: 20px 0;
 }
-
 .search-button {
-  background-color: $green-two;
-  border: 2px solid $green;
-  border-radius: 20px;
+  background-color: #4CAF50; /* Green */
+  border: none;
   color: white;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 16px;
   padding: 10px;
   text-align: center;
   text-decoration: none;
-  width: 130px;
+  display: inline-block;
+  font-size: 16px;
 
-  &:hover {
-    background-color: $green;
-    color: $withe;
+    &:hover {
+      background-color: $green;
+      color: $withe;
+    }
   }
-}
 
 .search-component {
   background: #FFF;
@@ -110,11 +98,11 @@ body {
   margin: 0 20px;
 }
 .search {
-  align-items: center;
+  align-content: center;
   color: $green;
   display: flex;
-  flex-direction: column;
-  justify-items: center;
+  flex-direction: row;
+  justify-content: center;
   margin-bottom: 20px;
 
   .input {
@@ -124,6 +112,7 @@ body {
     text-align: center;
     width: 220px;
   }
+  
 }
 
 .searchBar {
@@ -136,77 +125,4 @@ body {
   height: 60px;
   justify-content: center;
   padding: 20px 30px;
-}
-
-.filtros {
-  display: flex;
-  height: 30px;
-  margin: 20px;
-
-  .title {
-    align-items: center;
-    font-weight: 600;
-    margin: 0 10px;
-    text-align: center;
-    width: 100px;
-  }
-}
-
-.custom-select {
-  font-family: Arial;
-  margin: 0 15px;
-  position: relative;
-}
-
-.custom-select select {
-  display: none; /*hide original SELECT element:*/
-}
-
-/*style the arrow inside the select element:*/
-.select-selected:after {
-  border: 6px solid transparent;
-  border-color: #FFF transparent transparent transparent;
-  content: '';
-  height: 0;
-  position: absolute;
-  right: 10px;
-  top: 14px;
-  width: 0;
-}
-
-/*point the arrow upwards when the select box is open (active):*/
-.select-selected.select-arrow-active:after {
-  border-color: transparent transparent #FFF transparent;
-  top: 7px;
-}
-
-/*style the items (options), including the selected item:*/
-.select-items div,
-.select-selected {
-  border: 1px solid transparent;
-  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-  color: #FFF;
-  cursor: pointer;
-  padding: 8px 16px;
-  user-select: none;
-}
-
-/*style items (options):*/
-.select-items {
-  background-color: DodgerBlue;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 100%;
-  z-index: 99;
-}
-
-/*hide the items when the select box is closed:*/
-.select-hide {
-  display: none;
-}
-
-.select-items div:hover,
-.same-as-selected {
-  background-color: rgba(0, 0, 0, 0.1);
 }
