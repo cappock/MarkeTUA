@@ -83,7 +83,7 @@ function CarList() {
                             <h3>{item.brand}</h3>
                             <br />
                             <div className="product-quantity">
-                                <FontAwesomeIcon onClick={(e) => increase(item.id)} icon={faPlus} />
+                                <FontAwesomeIcon  className='minus' onClick={(e) => increase(item.id)} icon={faPlus} />
                                 <p className="product-quantity__number">{quantity[item.id]}</p>
                                 <FontAwesomeIcon onClick={() => decrease(item.id)} icon={faMinus} />
                             </div>

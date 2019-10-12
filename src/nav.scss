@@ -7,21 +7,26 @@
 .navbar {
   background-color: $withe;
   box-shadow: 10px 10px 17px -11px rgba(117,115,117,1);
+  box-sizing: content-box;
   display: flex;
   height: 70px;
   justify-content: space-between;
   padding: 10px 250px;
+}
+a {
+  height: 50px;
 }
 
 .logo {
   align-self: center;
   background-image: url('../src/assets/logo.png');
   background-repeat: no-repeat;
-  background-size: 100px;
+  background-size: 90px;
   border-radius: 10px;
   grid-column: 1;
-  height: 100px;
+  height: 70px;
   margin: 0 40px;
+  position: relative;
   width: 100px;
 }
 

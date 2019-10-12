@@ -4,6 +4,7 @@ $withe: rgb(255, 255, 255);
 
 html,
 body {
+  box-sizing: content-box;
   margin: 0;
   padding: 0;
   position: fixed;

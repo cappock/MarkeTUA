@@ -109,7 +109,7 @@ function Listado() {
               <div className="search-button" onClick={handleSubmit}>Buscar</div>
             </form>
               <div className='filtros'>
-                <div className='title' >Filtrar por</div>
+                <div className='title' >Filtrar por:</div>
                 <select className='custom-select' onChange={handlefilter}>
                   <option  value="Marca">Marca</option> 
                   <option  value="Categoria">Categoria</option>

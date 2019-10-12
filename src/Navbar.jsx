@@ -7,7 +7,6 @@ import SignInPage from './logeoFirebase/SignInPage';
 const Navbar = props => (
       <nav className="navbar">
             <Link className='logo' to={`/`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
-                  <div></div>
             </Link>
             <div className='icons'>
                   <Link to={`/carrito`} style={{ color: 'inherit', textDecoration: 'inherit' }}>

@@ -49,25 +49,22 @@ function Detalle({ match }) {
         />
         <div className="title2">
           <h2 className= 'title'>{item.name}</h2>
-          <div className="add-car2" onClick={e => agregarAlCarrito(item)}>
-            + Add
-          </div>
+          <div className="add-car2" onClick={e => agregarAlCarrito(item)}>+</div>
         </div>
 
         <div className="item2">
           <div className="image2">
-            <CarouselPage
+            <CarouselPage 
               thumbnail={item.thumbnail}
               name={item.name}
               images={item.images}
             ></CarouselPage>
           </div>
-          <div className="info2">
-            <div className="item-info first">
-              <h3 className="subtitle">Description</h3>
-              <p className="text">{item.description}</p>
+          <div className="info2">          
+            <div className="item-info">
+              <h3 className="subtitle first">Description</h3>
+              <p className="text">{item.brand}</p>
             </div>
-
             <div className="item-info">
               <h3 className="subtitle">Brand</h3>
               <p className="text">{item.brand}</p>
