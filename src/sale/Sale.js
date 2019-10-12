@@ -99,7 +99,7 @@ function Sale() {
           </select>
         </div>
         <div className='buttons'>
-          <div className='purchase'>Realizar Compra</div>
+          <button className='purchase'>Realizar Compra</button>
         </div>
       </form>
       </div>
