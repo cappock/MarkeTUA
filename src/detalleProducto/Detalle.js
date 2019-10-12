@@ -48,7 +48,7 @@ function Detalle({ match }) {
           crossorigin="anonymous"
         />
         <div className="title2">
-          <h2>{item.name}</h2>
+          <h2 className= 'title'>{item.name}</h2>
           <div className="add-car2" onClick={e => agregarAlCarrito(item)}>
             + Add
           </div>

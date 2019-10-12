@@ -41,7 +41,7 @@
   font-weight: 400;
   height: 60px;
   justify-content: space-between;
-  padding: 20px 30px;
+  padding: 10px;
 }
 
 .subtitle {
@@ -80,13 +80,13 @@
   width: 300px;
 }
 
-h2 {
+.title {
   color: $green;
   display: flex;
   font-weight: bold;
   height: 30px;
   margin: 10px;
-  width: 200px;
+  width: 500px;
 }
 
 p {
