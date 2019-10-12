@@ -8,25 +8,19 @@ const CarouselPage = (props) => {
                 props.images.map((image, index) => (
                     <Carousel.Item key={index}>
                         <img
-                            className="d-block w-100"
+                            className="image-carrousel"
                             src={image.url}
                             alt="First slide"
                         />
-                        <Carousel.Caption>
-                            <h3 style={{textShadow: '2px 2px #000'}}>{props.name}</h3>
-                        </Carousel.Caption>
                     </Carousel.Item>
                 ))
             ) : (
                     <Carousel.Item>
                         <img
-                            className="d-block w-100"
+                            className="image-carrousel"
                             src={props.thumbnail}
                             alt="First slide"
                         />
-                        <Carousel.Caption>
-                            <h3 style={{textShadow: '2px 2px #000'}}>{props.name}</h3>
-                        </Carousel.Caption>
                     </Carousel.Item>
                 )}
 
