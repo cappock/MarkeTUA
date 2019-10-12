@@ -1,4 +1,3 @@
-  
 
 import CarritoCompartido from './carritoCompartido';
 
@@ -11,6 +10,7 @@ function compartirCarrito(stringCarrito) {
 
     carritoCompartido.addUser();
 
+    console.log();
 
     var link = "/compartido/" + userCredentials.user ;
 
