@@ -15,14 +15,14 @@
 
 .logo {
   align-self: center;
-  background: url('https://www.underconsideration.com/brandnew/archives/creative_market_logo.png');
+  background-image: url('../src/assets/logo.png');
   background-repeat: no-repeat;
-  background-size: 130px;
+  background-size: 100px;
   border-radius: 10px;
   grid-column: 1;
-  height: 40px;
+  height: 100px;
   margin: 0 40px;
-  width: 130px;
+  width: 100px;
 }
 
 .shopping-car {
