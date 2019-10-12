@@ -74,7 +74,7 @@ function Listado() {
       setProducts2(items3.products);
     }
     fetchItems();
-  }, [filterSearch]);
+  }, [filter, filterSearch]);
 
   useEffect(() => {
     if(filter == "Marca"){
@@ -102,21 +102,19 @@ function Listado() {
   }
 
   return (
-      <div>
-        {/* <div className="searchBar"> */}
-
+      <div className='content'>
           <div className="search">
             <form onSubmit={handleSubmit}>
               <input className="search-input" placeholder="Buscar" ref={textInput} />
-              <button className="search-button" onClick={handleSubmit}>Buscar</button>
+              <div className="search-button" onClick={handleSubmit}>Buscar</div>
             </form>
-              <div>
-                <div >Buscar por</div>
-                <select onChange={handlefilter}>
-                  <option value="Marca">Marca</option> 
-                  <option value="Categoria">Categoria</option>
+              <div className='filtros'>
+                <div className='title' >Filtrar por</div>
+                <select className='custom-select' onChange={handlefilter}>
+                  <option  value="Marca">Marca</option> 
+                  <option  value="Categoria">Categoria</option>
                 </select>
-                <select onChange={handleOption}>
+                <select className='custom-select' onChange={handleOption}>
                   <option value={options[0]} >{options[0]}</option>
                   <option value={options[1]}>{options[1]}</option>
                   <option value={options[2]}>{options[2]}</option>
@@ -124,7 +122,6 @@ function Listado() {
                 </select>
               </div>  
           </div>
-        {/* </div> */}
         <ProductGrid products={products} api='1' />
         <ProductGrid products={products1} api='2' />
         <ProductGrid products={products2} api='3' />

@@ -20,8 +20,7 @@ function App() {
       });
 
   return (
-    <Router>
-      <div>       
+    <Router>      
         <Navbar isLoggeIn={isLoggeIn}/>
         <Switch>
           <Route path="/" exact component={Busqueda} />
@@ -38,7 +37,6 @@ function App() {
                 )}
 
         </Switch>
-      </div>
     </Router>
   );
 }

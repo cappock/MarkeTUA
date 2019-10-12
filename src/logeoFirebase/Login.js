@@ -1,21 +1,22 @@
-import React, { Component } from 'react';
-import firebaseConfig from './firebaseConfig';
-import firebase from 'firebase';
+import React, { Component } from "react";
+import firebaseConfig from "./firebaseConfig";
+import firebase from "firebase";
+import './Login.scss';
 const provider = new firebase.auth.GoogleAuthProvider();
 
 class Login extends Component {
-    constructor() {
-        super();
-        this.state = ({
-            userCredentials: null,
-            userLoged:null
-        });
-        this.authListener = this.authListener.bind(this);
-    }
+  constructor() {
+    super();
+    this.state = {
+      userCredentials: null,
+      userLoged: null
+    };
+    this.authListener = this.authListener.bind(this);
+  }
 
-    componentDidMount() {
-        this.authListener();
-    }
+  componentDidMount() {
+    this.authListener();
+  }
 
     authListener() {
         firebaseConfig.auth().onAuthStateChanged((user) => {
@@ -68,6 +69,6 @@ class Login extends Component {
                 )}</div>
             </div>
         );
-    }
+      }
 }
 export default Login;

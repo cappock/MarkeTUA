@@ -48,7 +48,7 @@ function CarList() {
         }
         setCount(aux);
         setDetail({  items, quantity , count  });
-    }, [quantity]);
+    }, [count, items, quantity]);
 
     function decrease(idItem) {
         var aux = Object.assign({}, quantity);
