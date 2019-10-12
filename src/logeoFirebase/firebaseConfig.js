@@ -1,4 +1,4 @@
-import firebase from 'firebase';
+import firebase from "firebase";
 const config = {
     apiKey: "AIzaSyDQ4YDAtPhkkBIu0TWRBnAi-bpBYFjmojM",
     authDomain: "marketua-b6b26.firebaseapp.com",

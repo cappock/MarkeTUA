@@ -115,17 +115,17 @@ function CarList(props) {
                     <div className='button' onClick={handleSale}>Make an order</div>
                 </Link>
                 <div className='button' onClick={handleCompartir}> Share Cart </div>
-                {/* {link === "" ? (
+                {link === "" ? (
                     <div>
                     </div>
                 ) : (
                         <div>
-                          */
-                        //    <Link to={link} style={{ color: 'inherit', textDecoration: 'inherit' }}>
-                        //         <h2>Compartir</h2>
-                        //     </Link>
-                        /* </div>
-                    )} */}
+
+                            <Link to={link} style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                                <h2>Compartir</h2>
+                            </Link>
+                        </div>
+                    )}
                 {/* {order ? (
                 <Sale/> 
             ) : (
