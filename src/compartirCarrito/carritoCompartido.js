@@ -33,7 +33,6 @@ class CarritoCompartido extends React.Component {
         const userRef = await db.collection("carritosCompartidosReact").doc(user)
         .get().then(doc => {
             data = doc.data();  
-            console.log(data);    
         });
         return data; 
         
