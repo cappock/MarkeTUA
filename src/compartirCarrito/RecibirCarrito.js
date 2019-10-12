@@ -13,12 +13,13 @@ function RecibirCarrito({ match }) {
 
     useEffect(() => {
         
-      // const fetchItems = async () => {
-      //     const datos = await carritoCompartido.getCar(user); 
-      //     setData(datos[0].carrito);
-      // }
-      // fetchItems();
-        
+      const fetchItems = async () => {
+          const datos = await carritoCompartido.getCar(user); 
+          
+          setData(JSON.parse(datos[0].carrito));
+      }
+      fetchItems();
+      
     }, [user]); 
 
     useEffect(() => {
