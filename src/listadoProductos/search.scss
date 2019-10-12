@@ -10,10 +10,9 @@ body {
 .items {
   display: grid;
   flex-wrap: wrap;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   justify-content: center;
   justify-items: center;
-  padding: 0 300px;
 }
 
 .item {
@@ -24,9 +23,8 @@ body {
   flex-wrap: wrap;
   grid-template-columns: 160px 310px;
   height: 140px;
-  justify-self: center;
   margin: 15px;
-  width: 600px;
+  width: 800px;
 }
 
 .image {
