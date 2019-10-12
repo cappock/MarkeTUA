@@ -81,25 +81,25 @@ function Sale() {
     <div className='host'>
         <div className='form'>
       <form onSubmit={handleBuy}>
-         <div className='title'>
+         <div className='title-sale'>
               <h2>Payment area</h2>
         </div>
         <div className='direccion'>
-          <p className='title-input'> Direccion :</p>
+          <p className='title-input'> Address :</p>
           <input className='input'
             required="required"
             ref={addressInput}/>
         </div>
         <div className= 'metodo-pago'>
-          <p className='title-input'> Metodo de Pago : </p>
+          <p className='title-input'> Pay method: </p>
           <select className='input'>
             <option value="Contraentrega" ref={payment_methodInput}>
-              Contra-Entrega
+            Upon delivery
             </option>
           </select>
         </div>
         <div className='buttons'>
-          <button className='purchase'>Realizar Compra</button>
+          <button className='purchase'>Purchase!</button>
         </div>
       </form>
       </div>

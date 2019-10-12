@@ -112,9 +112,9 @@ function CarList(props) {
             <h2>Total ${new Intl.NumberFormat().format(count)}</h2>
             <div className='payment'>
                 <Link to={`/venta/`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
-                    <div className='button' onClick={handleSale}>Realizar Pedido</div>
+                    <div className='button' onClick={handleSale}>Make an order</div>
                 </Link>
-                <div className='button' onClick={handleCompartir}> Compartir Carrito </div>
+                <div className='button' onClick={handleCompartir}> Share Cart </div>
                 {/* {link === "" ? (
                     <div>
                     </div>

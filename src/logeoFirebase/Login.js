@@ -63,9 +63,9 @@ class Login extends Component {
         return (
             <div>
                 <div>{this.state.userLoged ? (
-                <button onClick={this.signout} >Cerrar Sesión</button>
+                <button className='login-button' onClick={this.signout} >Sing-out</button>
                 ) : (
-                <button onClick={this.signup}>Iniciar con Google</button>
+                <button className='login-button' onClick={this.signup}>Sing-in</button>
                 )}</div>
             </div>
         );
