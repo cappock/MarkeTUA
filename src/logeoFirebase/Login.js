@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import firebaseConfig from "./firebaseConfig";
 import firebase from "firebase";
 import './Login.scss';
+
 const provider = new firebase.auth.GoogleAuthProvider();
 
 class Login extends Component {
