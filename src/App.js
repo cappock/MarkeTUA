@@ -10,7 +10,7 @@ import TablaPedidos from './verPedido/TablaPedidos'
 
 
 
-import {recibirCarrito} from './compartirCarrito/compartirCarrito';
+import RecibirCarrito from './compartirCarrito/RecibirCarrito';
 
 function App() {
   
@@ -31,8 +31,7 @@ function App() {
           <Route path="/" exact component={Busqueda} />
           <Route path="/item/:api/:id" component={Detalle} />
           <Route path="/carrito" exact component={CarList} />
-          <Route path="/carrito/:user/:stringCarrito" component={recibirCarrito} /> 
-
+          <Route path="/compartido/:user" component={RecibirCarrito} /> 
           {isLoggeIn ? (
                 <div> 
                   <Route  path="/venta/" component={Sale} />

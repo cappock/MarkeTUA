@@ -33,13 +33,9 @@ class Carrito {
     }
 
     constructor2(idCarrito,items){
+        console.log(items)
         this.id = idCarrito;
-        var aux = localStorage.getItem(this.id);
-        if (aux == null) {  
-            localStorage.setItem(this.id, items);
-        } else {
-            return;
-        }
+        localStorage.setItem(this.id, JSON.stringify(items));
         return this;
     }
 

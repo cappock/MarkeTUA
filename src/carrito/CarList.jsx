@@ -11,14 +11,14 @@ import compartirCarrito from '../compartirCarrito/compartirCarrito';
 
 import './car.scss';
 
-function CarList( {match} ) {
-    console.log(match);
-    var id = match.params.id;   
+function CarList(props) {
+
+     var id = props.id;   
     var car = new Carrito();
    
-    if(typeof id !== 'undefined'){
-        car = car.constructor1(id);
-    }
+    // if(typeof id !== 'undefined'){
+    //     car = car.constructor1(id);
+    // }
 
     const itemsInitialState = car.getItems();
     var initialTotalState = 0;
@@ -80,8 +80,6 @@ function CarList( {match} ) {
     }
 
     const handleCompartir = e => {
-
-        console.log(JSON.stringify(items));
         setLink(compartirCarrito(JSON.stringify(items)));
     }
 
