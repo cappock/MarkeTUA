@@ -1,11 +1,17 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import Carrito from './Carrito.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import './car.scss';
 
-function CarList() {
+function CarList(props) {
+
+    var id = props.id;
     var car = new Carrito();
+
+    if (typeof id !== 'undefined') {
+        car = car.constructor1(id);
+    }
 
     const itemsInitialState = car.getItems();
     var initialTotalState = 0;
@@ -15,17 +21,33 @@ function CarList() {
         initialTotalState += itemsInitialState[i].price;
     }
 
-
     const [count, setCount] = useState(initialTotalState);
 
 
     const [items, setItems] = useState(itemsInitialState);
     const [quantity, setQuantity] = useState(initialQuantityState);
 
+    const initialDetailState = { items, quantity, count };
+
+    const [detail, setDetail] = useState(initialDetailState);
+
+    const [order, SetOrder] = useState(false);
+
+    const [link, setLink] = useState("");
+
     function eliminar(id) {
         car.deleteItem(id);
         setItems(car.getItems());
     };
+
+    useEffect(() => {
+        var aux = 0;
+        for (var i = 0; i < items.length; i++) {
+            aux += items[i].price * quantity[items[i].id];
+        }
+        setCount(aux);
+        setDetail({ items, quantity, count });
+    }, [count, items, quantity]);
 
     function decrease(idItem) {
 
@@ -73,7 +95,7 @@ function CarList() {
                             <h3>{item.brand}</h3>
                             <br />
                             <div className="product-quantity">
-                                <FontAwesomeIcon onClick={(e) => increase(item.id)} icon={faPlus} />
+                                <FontAwesomeIcon className='minus' onClick={(e) => increase(item.id)} icon={faPlus} />
                                 <p className="product-quantity__number">{quantity[item.id]}</p>
                                 <FontAwesomeIcon onClick={() => decrease(item.id)} icon={faMinus} />
                             </div>
@@ -85,8 +107,31 @@ function CarList() {
             ) : (
                     <div></div>
                 )}
-            <h2>Total ${new Intl.NumberFormat().format(count)}</h2>
 
+            <h2>Total ${new Intl.NumberFormat().format(count)}</h2>
+            <div className='payment'>
+                <Link to={`/venta/`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                    <div className='button' onClick={handleSale}>Make an order</div>
+                </Link>
+                <div className='button' onClick={handleCompartir}> Share Cart </div>
+                {/* {link === "" ? (
+                    <div>
+                    </div>
+                ) : (
+                        <div>
+                          */
+                        //    <Link to={link} style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                        //         <h2>Compartir</h2>
+                        //     </Link>
+                        /* </div>
+                    )} */}
+                {/* {order ? (
+                <Sale/> 
+            ) : (
+                    <div></div>
+                )} */}
+
+            </div>
         </div>
     );
 }

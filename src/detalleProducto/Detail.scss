@@ -1,9 +1,4 @@
-$grey: rgb(184, 181, 181);
-$green: rgb(57, 95, 57);
-$withe: rgb(255, 255, 255);
-* {
-  box-sizing: border-box;
-}
+@import '../../variables.scss';
 
 .image2 {
   align-items: center;

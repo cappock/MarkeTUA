@@ -47,9 +47,22 @@ function Listado() {
         {/* <div className="searchBar"> */}
           <div className="search">
             <form onSubmit={handleSubmit}>
-              <input className="search-input" placeholder="Buscar" ref={textInput} />
-              <button className="search-button" onClick={handleSubmit}>Buscar</button>
+              <input className="search-input" placeholder="key words..." ref={textInput} />
+              <div className="search-button" onClick={handleSubmit}>Search</div>
             </form>
+              <div className='filtros'>
+                <div className='title' >Filter by:</div>
+                <select className='custom-select' onChange={handlefilter}>
+                  <option  value="Marca">Brand</option> 
+                  <option  value="Categoria">Category</option>
+                </select>
+                <select className='custom-select' onChange={handleOption}>
+                  <option value={options[0]} >{options[0]}</option>
+                  <option value={options[1]}>{options[1]}</option>
+                  <option value={options[2]}>{options[2]}</option>
+                  <option value={options[3]}>{options[3]}</option>
+                </select>
+              </div>  
           </div>
         {/* </div> */}
         <ProductGrid products={products} api='1' />
