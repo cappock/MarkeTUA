@@ -7,8 +7,8 @@ const URLs = {"search": ["https://marketua-develop-api.herokuapp.com/search?q=",
               "brand" : ["http://marketua-develop-api.herokuapp.com/items/brand/", "https://marketuaflask.herokuapp.com/items/brand/", "http://marketua-go-api.herokuapp.com/items/brand/" ],
               "category": ["http://marketua-develop-api.herokuapp.com/items/category/", "https://marketuaflask.herokuapp.com/items/category/", "http://marketua-go-api.herokuapp.com/items/category/"]};
 
-const brands = ["Lenovo", "Asus", "Apple", "ThinkPad"];
-const categories = ["Cellphone", "Portatil", "Mac", "Perifericos"];
+const brands = ["Lenovo", "ASUS", "Apple", "ThinkPad"];
+const categories = ["cellphone", "Portatil", "Mac", "Tecnología"];
 
 
 function Listado() {
@@ -66,6 +66,7 @@ function Listado() {
 
       const data3 = await fetch(URLaux[2] + filterSearch);
       const items3 = await data3.json();
+
       setProducts(items1.products);
       setProducts1(items2.products);
       if(items3.products == null){
