@@ -5,26 +5,24 @@ import CarritoCompartido from './carritoCompartido';
 import Carrito from '../carrito/Carrito';
 
 function RecibirCarrito({ match }) {
-    const [user] = useState(match.params.user);
-    const [data, setData] = useState([]);
 
     const carritoCompartido = new CarritoCompartido();
-    
-    
+    var car = new Carrito();
+    const [user] = useState(match.params.user);
+    const [data, setData] = useState(car.getItems());    
+
     useEffect(() => {
         
-        const fetchItems = async () => {
-            const datos = await carritoCompartido.getCar(user); 
-            setData(datos);
-        }
-        fetchItems();
+      // const fetchItems = async () => {
+      //     const datos = await carritoCompartido.getCar(user); 
+      //     setData(datos[0].carrito);
+      // }
+      // fetchItems();
         
     }, [user]); 
 
     useEffect(() => {
-        var car = new Carrito();
-        car = car.constructor2(user, data);
-        console.log(data);
+        car = car.constructor2(user, data); 
     }, [data]); 
 
 

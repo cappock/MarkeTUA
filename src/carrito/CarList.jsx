@@ -13,12 +13,12 @@ import './car.scss';
 
 function CarList(props) {
 
-     var id = props.id;   
+    var id = props.id;   
     var car = new Carrito();
    
-    // if(typeof id !== 'undefined'){
-    //     car = car.constructor1(id);
-    // }
+    if(typeof id !== 'undefined'){
+        car = car.constructor1(id);
+    }
 
     const itemsInitialState = car.getItems();
     var initialTotalState = 0;
@@ -80,7 +80,7 @@ function CarList(props) {
     }
 
     const handleCompartir = e => {
-        setLink(compartirCarrito(JSON.stringify(items)));
+        setLink(compartirCarrito(items));
     }
 
     return (

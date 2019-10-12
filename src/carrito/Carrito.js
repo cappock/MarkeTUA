@@ -33,9 +33,10 @@ class Carrito {
     }
 
     constructor2(idCarrito,items){
-        console.log(items)
         this.id = idCarrito;
-        localStorage.setItem(this.id, JSON.stringify(items));
+        var aux = {
+            "Items":items }
+        localStorage.setItem(this.id, JSON.stringify(aux));
         return this;
     }
 

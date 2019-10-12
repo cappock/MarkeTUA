@@ -8,7 +8,7 @@ function compartirCarrito(stringCarrito) {
 
     const userCredentials = JSON.parse(localStorage.getItem("userCredentials"));
 
-    const carritoCompartido = new CarritoCompartido(userCredentials.user, stringCarrito );
+    const carritoCompartido = new CarritoCompartido(userCredentials.user, stringCarrito);
 
     carritoCompartido.addUser();
     

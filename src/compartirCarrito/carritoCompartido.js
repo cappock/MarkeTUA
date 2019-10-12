@@ -30,8 +30,7 @@ class CarritoCompartido extends React.Component {
         var data = [];
         const userRef = await db.collection("carritosCompartidosReact").where("user", "==", user)
         .get().then(querySnapshot => {
-            data = querySnapshot.docs.map(doc => doc.data());    
-            
+            data = querySnapshot.docs.map(doc => doc.data());      
         });
         return data; 
         
