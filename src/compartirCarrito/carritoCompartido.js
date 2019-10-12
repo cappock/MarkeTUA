@@ -17,7 +17,9 @@ class CarritoCompartido extends React.Component {
         db.settings({
             timestampsInSnapshots: true
         });
-        db.collection("users")
+
+        db.collection('carritosCompartidosReact').doc(this.state.user).delete();
+        db.collection("carritosCompartidosReact")
         .doc(this.state.user)
         .set(this.state)
     };
@@ -28,9 +30,10 @@ class CarritoCompartido extends React.Component {
             timestampsInSnapshots: true
         });
         var data = [];
-        const userRef = await db.collection("carritosCompartidosReact").where("user", "==", user)
-        .get().then(querySnapshot => {
-            data = querySnapshot.docs.map(doc => doc.data());      
+        const userRef = await db.collection("carritosCompartidosReact").doc(user)
+        .get().then(doc => {
+            data = doc.data();  
+            console.log(data);    
         });
         return data; 
         

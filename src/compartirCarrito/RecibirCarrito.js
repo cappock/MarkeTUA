@@ -16,7 +16,7 @@ function RecibirCarrito({ match }) {
       const fetchItems = async () => {
           const datos = await carritoCompartido.getCar(user); 
           
-          setData(JSON.parse(datos[0].carrito));
+          setData(datos.carrito);
       }
       fetchItems();
       
