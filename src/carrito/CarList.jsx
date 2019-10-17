@@ -3,6 +3,8 @@ import Carrito from './Carrito.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
+import firebaseConfig from '../logeoFirebase/firebaseConfig';
+
 import { Link } from 'react-router-dom';
 
 import compartirCarrito from '../compartirCarrito/compartirCarrito';
@@ -42,6 +44,15 @@ function CarList(props) {
 
     const [link, setLink] = useState("");
 
+    const[isLoggeIn,setIsloggeIn] = useState(false);  
+    firebaseConfig.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        setIsloggeIn(true);
+      } else {
+        setIsloggeIn(false);
+      }
+    });
+
     function eliminar(id) {
         car.deleteItem(id);
         var aux = Object.assign({}, quantity);
@@ -75,11 +86,19 @@ function CarList(props) {
     }
 
     const handleSale = e => {
+        if(isLoggeIn === false){
+            alert("Debes Iniciar Sesion");
+            return;
+        }
         localStorage.setItem("DetallePedido", JSON.stringify(detail));
         SetOrder(true);
     }
 
     const handleCompartir = e => {
+        if(isLoggeIn === false){
+            alert("Debes Iniciar Sesion");
+            return;
+        }
         setLink(compartirCarrito(items));
     }
 
@@ -114,13 +133,17 @@ function CarList(props) {
                 <Link to={`/venta/`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
                     <div className='button' onClick={handleSale}>Make an order</div>
                 </Link>
+
+               
+
                 <div className='button' onClick={handleCompartir}> Share Cart </div>
+
+
                 {link === "" ? (
                     <div>
                     </div>
                 ) : (
                         <div>
-
                             <Link to={link} style={{ color: 'inherit', textDecoration: 'inherit' }}>
                                 <h2>Compartir</h2>
                             </Link>
