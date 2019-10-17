@@ -11,6 +11,7 @@ function RecibirCarrito({ match }) {
     const [user] = useState(match.params.user);
     const [data, setData] = useState(car.getItems());    
 
+
     useEffect(() => {
         
       const fetchItems = async () => {
@@ -19,7 +20,7 @@ function RecibirCarrito({ match }) {
           setData(datos.carrito);
       }
       fetchItems();
-      
+
     }, [user]); 
 
     useEffect(() => {

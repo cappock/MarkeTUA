@@ -10,8 +10,6 @@ function compartirCarrito(stringCarrito) {
 
     carritoCompartido.addUser();
 
-    console.log();
-
     var link = "/compartido/" + userCredentials.user ;
 
     return link;    

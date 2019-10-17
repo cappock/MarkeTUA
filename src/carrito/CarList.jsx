@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Carrito from './Carrito.js';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus, faMinus, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faMinus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+
+import Popup from "reactjs-popup";
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 import firebaseConfig from '../logeoFirebase/firebaseConfig';
 
@@ -9,7 +12,6 @@ import { Link } from 'react-router-dom';
 
 import compartirCarrito from '../compartirCarrito/compartirCarrito';
 
-// import Sale from '../sale/Sale';
 
 import './car.scss';
 
@@ -44,13 +46,17 @@ function CarList(props) {
 
     const [link, setLink] = useState("");
 
-    const[isLoggeIn,setIsloggeIn] = useState(false);  
-    firebaseConfig.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        setIsloggeIn(true);
-      } else {
-        setIsloggeIn(false);
-      }
+    const [popup, setPopup] = useState(false);
+
+
+    const [isLoggeIn, setIsloggeIn] = useState(false);
+    firebaseConfig.auth().onAuthStateChanged(function (user) {
+
+        if (user) {
+            setIsloggeIn(true);
+        } else {
+            setIsloggeIn(false);
+        }
     });
 
     function eliminar(id) {
@@ -86,7 +92,7 @@ function CarList(props) {
     }
 
     const handleSale = e => {
-        if(isLoggeIn === false){
+        if (isLoggeIn === false) {
             alert("Debes Iniciar Sesion");
             return;
         }
@@ -95,11 +101,16 @@ function CarList(props) {
     }
 
     const handleCompartir = e => {
-        if(isLoggeIn === false){
+        if (isLoggeIn === false) {
             alert("Debes Iniciar Sesion");
             return;
         }
+        setPopup(true);
         setLink(compartirCarrito(items));
+    }
+
+    const handleModal = e => {
+        setPopup(false);
     }
 
     return (
@@ -134,12 +145,25 @@ function CarList(props) {
                     <div className='button' onClick={handleSale}>Make an order</div>
                 </Link>
 
-               
-
                 <div className='button' onClick={handleCompartir}> Share Cart </div>
 
+                <Popup open={popup}
+                    closeOnDocumentClick
+                    onClose={handleModal}>
+                    <div>
+                        <Link to={link} style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                            <h2>{window.location.href + link}</h2>
+                        </Link>
+                        <CopyToClipboard text={window.location.href + link}>
+                            <div className='button'>Copy</div>
+                        </CopyToClipboard>
+                    </div>
+                </Popup>
 
-                {link === "" ? (
+                {/* <div className='button' onClick={handleCompartir}> Share Cart </div> */}
+
+
+                {/* {link === "" ? (
                     <div>
                     </div>
                 ) : (
@@ -148,12 +172,7 @@ function CarList(props) {
                                 <h2>Compartir</h2>
                             </Link>
                         </div>
-                    )}
-                {/* {order ? (
-                <Sale/> 
-            ) : (
-                    <div></div>
-                )} */}
+                    )} */}
 
             </div>
         </div>
