@@ -152,9 +152,9 @@ function CarList(props) {
                     onClose={handleModal}>
                     <div>
                         <Link to={link} style={{ color: 'inherit', textDecoration: 'inherit' }}>
-                            <h2>{window.location.href + link}</h2>
+                            <h2>{window.location.hostname + link}</h2>
                         </Link>
-                        <CopyToClipboard text={window.location.href + link}>
+                        <CopyToClipboard text={window.location.hostname + link}>
                             <div className='button'>Copy</div>
                         </CopyToClipboard>
                     </div>
