@@ -6,9 +6,11 @@ import '../verPedido/Pedido.scss';
 class TablaPedidos extends Component {
     state = {
         endpoint: "https://marketua-go-api.herokuapp.com/orders/",
+        endpoint1: "http://marketua-develop-api.herokuapp.com/orders/",
+        endpoint2: "http://marketua-develop-api.herokuapp.com/orders/",
         data: null,
-        items: "http://marketua-go-api.herokuapp.com/items/3",
-        images: null
+        data1: null,
+        data2: null
     };
     componentDidMount() {
         this.id = "userCredentials";
@@ -18,8 +20,6 @@ class TablaPedidos extends Component {
         } else {
             var obj = JSON.parse(aux);
             this.userCredential = obj.user;
-
-
             const conf = {
                 method: "get",
                 headers: new Headers({ "Content-Type": "application/json" })
@@ -27,20 +27,21 @@ class TablaPedidos extends Component {
             fetch(this.state.endpoint + this.userCredential, conf).then(response => {
                 return response.json();
             }).then(data => {
-                fetch(this.state.items, conf).then(response => {
-                    return response.json();
-                }).then(item => {
-                    if (Object.getOwnPropertyNames(data).length !== 0) {
-                        this.setState({ images: item });
-                        this.setState({ data: data });
-                    } else {
-                        alert("usuario "+ this.userCredential+" sin pedidos realizados")
-                    }
-
-                })
-
-
+                this.setState({ data: data });
+                console.log(data)
             });
+            // fetch(this.state.endpoint1 + this.userCredential, conf).then(response => {
+            //     return response.json();
+            // }).then(data => {
+            //     this.setState({ data1: data });
+            //     console.log(data)
+            // });
+            // fetch(this.state.endpoint2 + this.userCredential, conf).then(response => {
+            //     return response.json();
+            // }).then(data => {
+            //     this.setState({ data2: data });
+            //     console.log(data)
+            // });
         }
 
     }
@@ -49,29 +50,58 @@ class TablaPedidos extends Component {
             <div className='screen'>
                 <table className='table'>
                     <tbody>
-                        { <tr>
-                            <th>Items</th>
+                        {<tr>
+                            <th>Item Id</th>
                             <th>Pay method</th>
                             <th>Address</th>
                             <th>Total</th>
                             <th>User-name</th>
-                        </tr> }
+                        </tr>}
                         {this.state.data ? (
                             this.state.data.orders.map((order, index) => (
-                                <Pedido payment_method={order.payment_method}
+                                <Pedido key={index}
+                                    payment_method={order.payment_method}
                                     shipment_address={order.shipment_address}
                                     total={order.total}
                                     username={order.username}
-                                    thumbnail={this.state.images.thumbnail}
-                                    name={this.state.images.name}
-                                    images={this.state.images.images}
+                                    name={order.items[0].item_id}
+
+                                />
+                            ))
+
+                        ) : (
+                                <div></div>
+                            )}
+                        {/* {this.state.data1 ? (
+                            this.state.data1.orders.map((order, index) => (
+                                <Pedido payment_method={order.payment_method}
+                                    shipment_address={order.shipment_address}
+                                    total={order.total}
+                                    username={order.username}                                  
+                                    name={order.items[0].item_id}                                 
+
                                 />
 
                             ))
 
                         ) : (
                                 <div></div>
-                            )}
+                            )} */}
+                        {/* {this.state.data2 ? (
+                            this.state.data2.orders.map((order, index) => (
+                                <Pedido payment_method={order.payment_method}
+                                    shipment_address={order.shipment_address}
+                                    total={order.total}
+                                    username={order.username}                                  
+                                    name={order.items[0].item_id}                                 
+
+                                />
+
+                            ))
+
+                        ) : (
+                                <div></div>
+                            )} */}
 
                     </tbody>
                 </table>
