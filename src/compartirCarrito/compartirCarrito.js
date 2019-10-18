@@ -5,12 +5,17 @@ import CarritoCompartido from './carritoCompartido';
 function compartirCarrito(stringCarrito) {
 
     const userCredentials = JSON.parse(localStorage.getItem("userCredentials"));
+    var carritoCompartido;
+    var link;
+    var nro = Math.floor(Math.random() * (10000000));
 
-    const carritoCompartido = new CarritoCompartido(userCredentials.user, stringCarrito);
+    const fetchItems = async () => {
+        carritoCompartido = new CarritoCompartido(userCredentials.user, stringCarrito);
+        const nCar = await carritoCompartido.addUser(nro.toString());
+    }
 
-    carritoCompartido.addUser();
-
-    var link = "/compartido/" + userCredentials.user ;
+    fetchItems();
+    link = "/compartido/" + userCredentials.user + "/" + nro;
 
     return link;    
 }
