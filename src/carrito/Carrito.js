@@ -33,8 +33,7 @@ class Carrito {
     }
 
     constructor2(idCarrito,items){
-        var obj =(items);
-        //console.log(obj);
+        var obj = (items);
         this.id = idCarrito;
         var aux = {
             "Items": obj }

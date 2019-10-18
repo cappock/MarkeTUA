@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Carrito from './Carrito.js';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus, faMinus, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faMinus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+
+import Popup from "reactjs-popup";
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+
+import firebaseConfig from '../logeoFirebase/firebaseConfig';
 
 import { Link } from 'react-router-dom';
 
 import compartirCarrito from '../compartirCarrito/compartirCarrito';
 
-// import Sale from '../sale/Sale';
 
 import './car.scss';
 
@@ -42,6 +46,19 @@ function CarList(props) {
 
     const [link, setLink] = useState("");
 
+    const [popup, setPopup] = useState(false);
+
+
+    const [isLoggeIn, setIsloggeIn] = useState(false);
+    firebaseConfig.auth().onAuthStateChanged(function (user) {
+
+        if (user) {
+            setIsloggeIn(true);
+        } else {
+            setIsloggeIn(false);
+        }
+    });
+
     function eliminar(id) {
         car.deleteItem(id);
         var aux = Object.assign({}, quantity);
@@ -75,12 +92,25 @@ function CarList(props) {
     }
 
     const handleSale = e => {
+        if (isLoggeIn === false) {
+            alert("Debes Iniciar Sesion");
+            return;
+        }
         localStorage.setItem("DetallePedido", JSON.stringify(detail));
         SetOrder(true);
     }
 
     const handleCompartir = e => {
+        if (isLoggeIn === false) {
+            alert("Debes Iniciar Sesion");
+            return;
+        }
+        setPopup(true);
         setLink(compartirCarrito(items));
+    }
+
+    const handleModal = e => {
+        setPopup(false);
     }
 
     return (
@@ -114,23 +144,35 @@ function CarList(props) {
                 <Link to={`/venta/`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
                     <div className='button' onClick={handleSale}>Make an order</div>
                 </Link>
+
                 <div className='button' onClick={handleCompartir}> Share Cart </div>
-                {link === "" ? (
+
+                <Popup open={popup}
+                    closeOnDocumentClick
+                    onClose={handleModal}>
+                    <div>
+                        <Link to={link} style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                            <h2>{window.location.hostname + link}</h2>
+                        </Link>
+                        <CopyToClipboard text={window.location.hostname + link}>
+                            <div className='button'>Copy</div>
+                        </CopyToClipboard>
+                    </div>
+                </Popup>
+
+                {/* <div className='button' onClick={handleCompartir}> Share Cart </div> */}
+
+
+                {/* {link === "" ? (
                     <div>
                     </div>
                 ) : (
                         <div>
-
                             <Link to={link} style={{ color: 'inherit', textDecoration: 'inherit' }}>
                                 <h2>Compartir</h2>
                             </Link>
                         </div>
-                    )}
-                {/* {order ? (
-                <Sale/> 
-            ) : (
-                    <div></div>
-                )} */}
+                    )} */}
 
             </div>
         </div>
