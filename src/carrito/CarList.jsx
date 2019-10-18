@@ -150,12 +150,12 @@ function CarList(props) {
                 <Popup open={popup}
                     closeOnDocumentClick
                     onClose={handleModal}>
-                    <div>
+                    <div className="popup">
                         <Link to={link} style={{ color: 'inherit', textDecoration: 'inherit' }}>
                             <h2>{window.location.hostname + link}</h2>
                         </Link>
                         <CopyToClipboard text={window.location.hostname + link}>
-                            <div className='button'>Copy</div>
+                            <div className='button button-share'>Copy</div>
                         </CopyToClipboard>
                     </div>
                 </Popup>
