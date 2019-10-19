@@ -28,9 +28,16 @@ describe('Componente navbar',()=>{
         const code = find(nav,'.shopping-car')
         expect(code.length).toBe(1);
     });
-    it('Should has an h1 tag', () => {
-        const code = find(nav,'h1')
-        expect (code).toBeTruthy()              
+    it ('Should render logo',()=>{
+        const code = find(nav,'.logo')
+        expect(code.length).toBe(1);
     });
-    
+    it ('Should render carrito',()=>{
+        const code = find(nav,'.shopping-car')
+        expect(code.length).toBe(1);
+    });
+    it('Should has SignInPage', () => {
+        const code = find(nav,'SignInPage')
+        expect (code).toBeTruthy()              
+    });     
 })
