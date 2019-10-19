@@ -40,4 +40,6 @@ describe('Componente navbar',()=>{
         const code = find(nav,'SignInPage')
         expect (code).toBeTruthy()              
     });     
+
+    /////asdkvnsdkf.vn
 })
