@@ -26,6 +26,7 @@ class CarritoCompartido extends React.Component {
         });
         if (typeof data != 'undefined'){
             var carUpdate = data.carrito;
+            console.log(carUpdate);
             carUpdate = JSON.parse(carUpdate);
             carUpdate[nro] = (this.state.carrito);
             this.state.carrito = JSON.stringify(carUpdate);

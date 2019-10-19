@@ -28,16 +28,16 @@ function Listado() {
   useEffect(() => {
 
     const fetchItems = async () => {
-      const data1 = await fetch(URLs.search[0] + search);
-      const items1 = await data1.json();
+      // const data1 = await fetch(URLs.search[0] + search);
+      // const items1 = await data1.json();
 
-      const data2 = await fetch(URLs.search[1]  + search);
-      const items2 = await data2.json();
+      // const data2 = await fetch(URLs.search[1]  + search);
+      // const items2 = await data2.json();
 
       const data3 = await fetch(URLs.search[2]  + search);
       const items3 = await data3.json();
-      setProducts(items1.products);
-      setProducts1(items2.products);
+      // setProducts(items1.products);
+      // setProducts1(items2.products);
       if(items3.products == null){
         items3.products = [];
       }
@@ -58,17 +58,17 @@ function Listado() {
         URLaux = URLs.category;
       }
 
-      const data1 = await fetch(URLaux[0] + filterSearch);
-      const items1 = await data1.json();
+      // const data1 = await fetch(URLaux[0] + filterSearch);
+      // const items1 = await data1.json();
 
-      const data2 = await fetch( URLaux[1] + filterSearch);
-      const items2 = await data2.json();
+      // const data2 = await fetch( URLaux[1] + filterSearch);
+      // const items2 = await data2.json();
 
       const data3 = await fetch(URLaux[2] + filterSearch);
       const items3 = await data3.json();
 
-      setProducts(items1.products);
-      setProducts1(items2.products);
+      // setProducts(items1.products);
+      // setProducts1(items2.products);
       if(items3.products == null){
         items3.products = [];
       }
@@ -123,8 +123,8 @@ function Listado() {
                 </select>
               </div>  
           </div>
-        <ProductGrid products={products} api='1' />
-        <ProductGrid products={products1} api='2' />
+        {/* <ProductGrid products={products} api='1' />
+        <ProductGrid products={products1} api='2' /> */}
         <ProductGrid products={products2} api='3' />
       </div>
   );
