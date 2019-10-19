@@ -1,0 +1,95 @@
+@import '../../variables.scss';
+
+* {
+  font-family: $font;
+}
+.host {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  justify-items: center;
+  width: 100vw;;
+}
+
+.form {
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 10px 10px 17px -11px rgba(117,115,117,1);
+  height: 400px;
+  margin-top: 60px;
+  padding: 30px;
+  width: 400px;
+
+  .direccion {
+    height: 100px;
+    padding: 10px;
+  }
+
+  .metodo-pago {
+    border-bottom: solid 2px $green;
+    height: 100px;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+}
+
+.purchase {
+  background-color: $green-two;
+  border: 2px solid $green;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  height: 50px;
+  justify-self: center;
+  margin-right: 30px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  width: 180px;
+
+  &:hover {
+    background-color: $green;
+    color: $withe;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+.title-input {
+  font-size: 18px;
+  font-weight: 800;
+  height: 20px;
+  margin: 20px 0;
+}
+
+.input {
+  border: solid 2px $green;
+  border-radius: 20px;
+  height: 30px;
+  padding: 5px;
+  width: 90%;
+}
+
+.title-sale {
+  align-items: center;
+  border-bottom: solid 2px $green;
+  display: flex;
+  height: 50px;
+  position: relative;
+  width: max-content;
+
+  &::after {
+    background-image: url('../assets/cards.png');
+    background-repeat: no-repeat;
+    background-size: 250px;
+    content: '';
+    height: 100px;
+    left: 180px;
+    position: absolute;
+    width: 200px;
+  }
+}

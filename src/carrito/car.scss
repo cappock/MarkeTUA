@@ -1,54 +1,121 @@
-.shopping-car_items{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+@import '../../variables.scss';
+
+* {
+  color: $green;
+  font-family: $font;
+  padding: 0;
+}
+
+.shopping-car_items {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
 }
 
 .shopping-car__item {
-  border-radius: 10px;
-  // border: 1px solid black;
+  background-color: whitesmoke;
+  border-radius: 3px;
+  box-shadow: 10px 10px 17px -11px rgba(117,115,117,1);
+  color: $green;
   display: flex;
-  width: 500px;
   margin: 10px auto;
   padding: 20px;
   position: relative;
-  background-color: whitesmoke;
-} 
+  width: 500px;
+}
 
 .product-image {
-  width: 100px;
   height: 100px;
+  width: 100px;
 }
 
 .product-detail {
-  width: 60%;
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  width: 60%;
 }
 
-.product-detail p, .product-detail h3 {
+.product-detail p,
+.product-detail h3 {
   margin: 0;
 }
 .product-quantity {
-  width: 50px;
   display: flex;
   justify-content: space-between;
-
+  width: 50px;
 }
 .product-quantity__number {
   font-size: 16px;
   margin: 0 20px;
 }
 
-.product-price{
+.product-price {
   font-weight: bold;
 }
 
 .delete__button {
   color: gray;
   position: absolute;
-  top: 15px;
   right: 15px;
+  top: 15px;
+}
+
+.payment {
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  margin: 30px;
+  width: 100%;
+
+  .button {
+    background-color: $green-two;
+    border: 2px solid $green;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    height: 20px;
+    justify-self: center;
+    margin-right: 30px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    width: 130px;
+
+    &:hover {
+      background-color: $green;
+      color: $withe;
+    }
+  }
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  text-align: center;
+}
+
+
+.popup {
+  align-content: center;
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+
+  .button-share {
+    justify-self: center;
+    margin: 20px;
+  }
+}
+
+.popup-content {
+  border-radius: 20px;
 }

@@ -1,19 +1,49 @@
-$grey: rgb(184, 181, 181);
-$green: rgb(77, 112, 77);
-$white: rgb(255, 255, 255);
+@import '../variables.scss';
 
-.market-name{
-    color: white;
-}
-.navbar{
-    background-color: $green;
-    padding: 15px 10%;
-    display: flex;
-    justify-content: space-between
+.market-name {
+  color: white;
 }
 
-.udea-logo, .shopping-car {
-    width: 50px;
-    height: 50px;
+.navbar {
+  background-color: $withe;
+  box-shadow: 10px 10px 17px -11px rgba(117,115,117,1);
+  box-sizing: content-box;
+  display: flex;
+  height: 70px;
+  justify-content: space-between;
+  padding: 10px 250px;
+}
+a {
+  height: 50px;
 }
 
+.logo {
+  align-self: center;
+  background-image: url('../src/assets/logo.png');
+  background-repeat: no-repeat;
+  background-size: 90px;
+  border-radius: 10px;
+  grid-column: 1;
+  height: 70px;
+  margin: 0 40px;
+  position: relative;
+  width: 100px;
+}
+
+.shopping-car {
+  height: 50px;
+  margin: 0 15px;
+  width: 50px;
+}
+
+.orders {
+  background-color: white;
+  height: 50px;
+  margin: 0 15px;
+  width: 50px;
+}
+
+.icons {
+  align-items: center;
+  display: flex;
+}
