@@ -64,7 +64,7 @@ class TablaPedidos extends Component {
                                     shipment_address={order.shipment_address}
                                     total={order.total}
                                     username={order.username}
-                                    name={order.items.id}
+                                    name={order.items[0].id}
 
                                 />
                             ))
