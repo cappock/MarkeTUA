@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./Sale.scss";
 
 const URLs = ["http://marketua-develop-api.herokuapp.com/checkout", " ", "https://marketua-go-api.herokuapp.com/checkout"];
@@ -10,61 +10,41 @@ function Sale() {
 
     const detail = JSON.parse(localStorage.getItem("DetallePedido"));
     var items = [];
-
-  detail.items.forEach(element => {
-    if (element.api === 1) {
-      items.push({
-        Item_id: element.id,
-        Quantity: detail.quantity[element.id],
-        backend: "RUBY"
-      });
-    } else if (element.api === 2) {
-      items.push({
-        Item_id: element.id,
-        Quantity: detail.quantity[element.id],
-        backend: "FLASK"
-      });
-    } else if (element.api === 3) {
-      items.push({
-        Item_id: element.id,
-        Quantity: detail.quantity[element.id],
-        backend: "GO"
-      });
-    }
-  });
+    var total = 0.0;
 
     detail.items.forEach(element => {
-        if (element.api === 1) {
-            items.push({ "item_id": element.id, "quantity": detail.quantity[element.id], "backend": "ruby" });
+        if (element.api === "1") {
+            items.push({ "item_id": element.id.toString(), "quantity": detail.quantity[element.id].toString(), "backend": "ruby" });
+            total +=  element.price * detail.quantity[element.id];
         }
-        else if (element.api === 2) {
-            items.push({ "item_id": element.id, "quantity": detail.quantity[element.id], "backend": "flask" });
+        else if (element.api === "2") {
+            items.push({ "item_id": element.id.toString(), "quantity": detail.quantity[element.id].toString(), "backend": "flask" });
+            total +=  element.price * detail.quantity[element.id];
         }
-        else if (element.api === 3) {
-            items.push({ "item_id": element.id, "quantity": detail.quantity[element.id], "backend": "go" });
-        }
+        else if (element.api === "3") {
+            items.push({ "item_id": element.id.toString(), "quantity": detail.quantity[element.id].toString(), "backend": "go" });
+            total +=  element.price * detail.quantity[element.id];
+        }        
     });
 
     const handleBuy = e => {
         e.preventDefault();
         const address = addressInput.current.value;
         const payment_method = payment_methodInput.current.value;
-
         var conf = {
             method: "post",
+            mode: 'no-cors' ,
             body: JSON.stringify({
-                "items": items,
+                "items": items,                
                 "payment_method": payment_method,
                 "shipment_address": address,
-                "total": 30.0,
+                "total": total,
                 "username": userCredentials.user
             }),
             headers: new Headers({ "idToken": userCredentials.idToken })
         };
-     
         try {
           fetch(URLs[0], conf).then(response => {
-            return response.json();
           });
         } catch (error) {
           console.log(error, "Error al llamar RUBY back");
@@ -72,7 +52,6 @@ function Sale() {
 
         try {
           fetch(URLs[1], conf).then(response => {
-            return response.json();
           });
         } catch (error) {
           console.log(error, "Error al llamar FLASK back");
@@ -80,9 +59,8 @@ function Sale() {
 
         try {
           fetch(URLs[2], conf).then(response => {
-            return response.json();
           });
-        } catch (error) {
+        } catch (error) {          
           console.log(error, "Error al llamar GO back");
         }
     alert("Pedido Realizado");

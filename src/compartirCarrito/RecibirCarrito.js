@@ -9,17 +9,18 @@ function RecibirCarrito({ match }) {
     const carritoCompartido = new CarritoCompartido();
     var car = new Carrito();
     const [user] = useState(match.params.user);
-    const [data, setData] = useState(car.getItems());    
+    const [data, setData] = useState({}); 
+    const [nCar] = useState(match.params.nCar);   
+
 
     useEffect(() => {
         
       const fetchItems = async () => {
           const datos = await carritoCompartido.getCar(user); 
-          
-          setData(datos.carrito);
+          setData(JSON.parse(datos.carrito)[nCar]);
       }
       fetchItems();
-      
+
     }, [user]); 
 
     useEffect(() => {

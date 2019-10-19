@@ -30,7 +30,7 @@ function App() {
           <Route path="/" exact component={Busqueda} />
           <Route path="/item/:api/:id" component={Detalle} />
           <Route path="/carrito" exact component={CarList} />
-          <Route path="/compartido/:user" component={RecibirCarrito} /> 
+          <Route path="/compartido/:user/:nCar" component={RecibirCarrito} /> 
           {isLoggeIn ? (
                 <div> 
                   <Route  path="/venta/" component={Sale} />
