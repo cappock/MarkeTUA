@@ -18,7 +18,7 @@ describe('Componente navbar',()=>{
     let nav;
     beforeEach(()=>{
         nav = s();
-    })
+    })  
 
     it ('Should render',()=>{
         const code = find(nav,'.navbar')
